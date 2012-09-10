@@ -13,9 +13,24 @@ html, body {
   margin-top: 20px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  border-radius: 0;
+}
+
+.bs-docs-example.cont {
+  padding-top: 14px;
+}
+
+.bs-docs-example > .title {
+  border-radius: 0;  
+}
+
+.add-on {
+  margin: 0;
+  border-top: 0;
 }
 
 pre {
+  border-radius: 0;
   border-top: 0;
   border-radius: 0;
 }
