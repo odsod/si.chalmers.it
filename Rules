@@ -13,33 +13,41 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+preprocess do
+  @items.select { |i| i[:extension] == 'md' }.each do |i|
+    i[:title] = i.raw_content.split("\n").first
+  end
+end
+
 compile '/stylesheet/' do
   # don’t filter or layout
 end
 
-compile '/google-code-prettify/*/' do
-  
+compile '/coderay/' do
 end
 
-compile '/docs/' do
-
-end
-
-route '/docs' do
-  '/docs.css'
-end
-
-compile '*' do
-  if item.binary?
-    # don’t filter binary items
-  else
-    filter :haml, :format => :html5
-    layout 'layout'
-  end
+route '/coderay/' do
+  '/syntax.css'
 end
 
 route '/stylesheet/' do
   '/style.css'
+end
+
+compile '*' do
+  if item[:extension] == 'md'
+    filter :includejava
+    filter :maruku
+    filter :colorize_syntax, 
+      :default_colorizer => :coderay,
+      :outside_pre => true, 
+      :coderay => {
+        :line_numbers => :table,
+        :bold_every => 1000,
+        :css => :class
+      }
+    layout 'layout'
+  end
 end
 
 route '*' do

@@ -3,41 +3,78 @@ html, body {
   padding: 0;
 }
 
+body {
+  counter-reset: H2;
+}
+
+h1, h4 {
+  display: none;
+  text-align: right;
+}
+
+h2:before {
+  content: "Uppgift " counter(H2) ":";
+  counter-increment: H2;
+  font-size: 20px;
+  font-weight: normal;
+  margin-right: 0.5em;
+}
+
+h2 {
+  line-height: 20px;
+  font-size: 15px;
+  color: #333;
+  margin-top: 30px;
+  display: block;
+  text-align: left;
+  border-bottom: 1px solid #aaa;
+}
+
+h3:before {
+  content: counter(H2) " ";
+  font-size: 15px;
+}
+
+h3 {
+  font-size: 12px;
+  display: block;
+}
+
 .si-nav {
   margin: 0;
   padding: 0;
 }
 
-.bs-docs-example {
-  margin: 0;
-  margin-top: 20px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-radius: 0;
-}
-
-.bs-docs-example.cont {
-  padding-top: 14px;
-}
-
-.bs-docs-example > .title {
-  border-radius: 0;  
-}
-
-.add-on {
-  margin: 0;
-  border-top: 0;
-}
-
-pre {
-  border-radius: 0;
-  border-top: 0;
-  border-radius: 0;
-}
-
 .si-crumbs {
   border-left: 1px solid #DDD;
   border-right: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
   border-radius: 0;
   margin: 0;
+}
+
+pre {
+    word-break: normal;
+    word-wrap: normal;
+    padding: 0;
+    border-radius: 0;
+}
+
+table.CodeRay {
+    border: 0;
+}
+
+table.CodeRay td {
+    padding: 0;
+}
+
+
+table.CodeRay pre {
+    border-radius: 0;
+    border: 0;
+    padding: 1em;
+}
+
+table.CodeRay td.line-numbers pre {
+    background: #ddd;
 }
