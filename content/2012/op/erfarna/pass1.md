@@ -6,23 +6,22 @@ Lite enklare loopar
 
 Vad blir outputen av följande program?
 
-Uppgift1.java
-
+ForLoopar.java
 
 Lite klurigare loopar
 ---------------------
 
-### a)
+### a) Lite refaktorering
 
 Skriv om följande `do`-`while`-loop till en `while`-loop:
 
-Uppgift2a.java
+DoWhile.java
 
-### b)
+### b) Lite diskussion
 
 Hur vet man om man bör använda en `for`-loop eller en `while`-loop?
 
-### c)
+### c) Lite mera diskussion
 
 Hur vet man om man bör använda en `if`-`else`-sats eller en `swich`-`case`-sats?
 

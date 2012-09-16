@@ -1,4 +1,4 @@
-public class Uppgift1 {
+public class ForLoopar {
 
     for(int i = 1; i <= 5; i++) {
         System.out.println(i * i);

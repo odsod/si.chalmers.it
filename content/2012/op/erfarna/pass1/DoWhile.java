@@ -1,4 +1,4 @@
-public class Uppgift2a {
+public class DoWhile {
 
   public static void main (String[] args) {
     do {
