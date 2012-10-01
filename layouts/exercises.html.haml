@@ -1,0 +1,26 @@
+%html
+  %head
+    = render 'head'
+    %link{:href => "/assets/css/exercises.css", :rel => "stylesheet"}
+    %link{:href => "/assets/css/bootstrap-pretty.css", :rel => "stylesheet"}
+    %script{:src => "/assets/js/prettify.js"}
+  %body{:onload => "prettyPrint()"}
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand{:href => "#"}= @items.find { |i| i.parent.nil? }[:title]
+          %ul.nav
+            - breadcrumbs_trail.each do |item|
+              - unless item.parent.nil?
+                %li.dropdown
+                  %a.dropdown-toggle{:href => "#", "data-toggle" => "dropdown"}
+                    =item[:title]
+                    %b.caret
+                  %ul.dropdown-menu
+                    - item.parent.children.each do |sibling|
+                      %li
+                        %a{:href => sibling.path}= sibling[:title]
+                      
+    .container
+      .row
+        = yield

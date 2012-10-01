@@ -1,0 +1,44 @@
+h1 {
+  display: none;
+}
+
+/*Exercise counter: h2*/
+
+body {
+  counter-reset: exercise;
+}
+
+h2:before {
+  content: "Uppgift " counter(exercise) ": ";
+  counter-increment: exercise;
+}
+
+h2.page-header {
+  color: #5A5A5A;
+}
+
+/*Part counter: h3*/
+
+h2 {
+  counter-reset: part;
+}
+
+h3:before {
+  content: counter(part, lower-alpha) ") ";
+  counter-increment: part;
+}
+
+h3 {
+  font-size: 12px;
+  line-height: 18px;
+  margin-top: 20px;
+  display: block;
+}
+
+code {
+  padding: 1px 3px !important;
+}
+
+pre.prettyprint {
+  margin-bottom: 10px;
+}

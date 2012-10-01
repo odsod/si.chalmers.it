@@ -1,47 +1,49 @@
-Loopar och villkorssatser
-=========================
+Pass 1: Loopar och villkorssatser
+=================================
 
-Lite enklare loopar
+Enklare loopar
 -------------------
 
 Vad blir outputen av följande program?
 
 ForLoopar.java
 
-Lite klurigare loopar
+Klurigare loopar
 ---------------------
 
-### a) Lite refaktorering
+### Refaktorering
 
-Skriv om följande `do`-`while`-loop till en `while`-loop:
+Skriv om följande `do while ()` loop till en `while ()` loop:
 
 DoWhile.java
 
-### b) Lite diskussion
+### Lite diskussion
 
-Hur vet man om man bör använda en `for`-loop eller en `while`-loop?
+Hur vet man om man bör använda en `for` loop eller en `while` loop?
 
-### c) Lite mera diskussion
+### Lite mera diskussion
 
-Hur vet man om man bör använda en `if`-`else`-sats eller en `swich`-`case`-sats?
+Hur vet man om man bör använda en `if () else` sats eller en `switch () case` sats?
 
 Lite Fibonacci
 --------------
 
 Fibonaccis talföljd: 
 
-> `0 1 1 2 3 5 8 13 ...`
+`0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...`
 
-> `fib(0) = 0`
->
-> `fib(1) = 1`
->
-> `fib(n) = fib(n-1) + fib(n-2)`
+Matematisk definition:
+
+`fib(0) = 0`
+
+`fib(1) = 1`
+
+`fib(n) = fib(n-1) + fib(n-2)`
 
 Skriv ett program som skriver ut de 10 första fibonacci-talen.
 
-Diofantiska ekvationer (Tenta)
-------------------------------
+Diofantiska ekvationer ''Tentauppgift''
+---------------------------------------
 
 En ekvation på formen `Ax + By + Cz = D`, där `A`, `B`, `C` och `D` är heltal kallas för en diofantisk ekvation.
 

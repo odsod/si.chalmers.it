@@ -14,40 +14,55 @@
 #   because “*” matches zero or more characters.
 
 preprocess do
-  @items.select { |i| i[:extension] == 'md' }.each do |i|
-    i[:title] = i.raw_content.split("\n").first
+  # Parse titles from first line of markdown files
+  #@items.select { |i| i[:extension] == 'md' }.each do |i|
+  #i[:title] = i.raw_content.split("\n").first
+  #end
+  @items.each do |i|
+    if i[:extension] == 'md'
+      i[:title] = i.raw_content.split("\n").first
+    else
+      i[:title] = "hej"
+    end
   end
 end
 
-compile '/stylesheet/' do
-  # don’t filter or layout
+compile '/assets/*' do
+
 end
 
-compile '/coderay/' do
+route '/assets/*' do
+  item.identifier.chop + '.' + item[:extension]
 end
 
-route '/coderay/' do
-  '/syntax.css'
+# Sheet items
+# /year/subject/index/sheet/item/
+compile '/*/*/*/*/*/' do
+
 end
 
-route '/stylesheet/' do
-  '/style.css'
-end
-
-compile '*' do
-  if item[:extension] == 'md'
+# Sheets
+# /year/subject/index/sheet/
+compile '/*/*/*/*/' do
+  unless item.binary?
+    filter :prettyprintinline
+    filter :bootstrapify
     filter :includejava
+    filter :subheaders
     filter :maruku
-    filter :colorize_syntax, 
-      :default_colorizer => :coderay,
-      :outside_pre => true, 
-      :coderay => {
-        :line_numbers => :table,
-        :bold_every => 1000,
-        :css => :class
-      }
-    layout 'layout'
+    layout 'exercises'
   end
+end
+
+# Index pages
+# /year/subject/index/
+compile '/*/*/*/' do
+  layout 'directory'
+end
+
+# Directory pages
+compile '*' do
+  layout 'directory'
 end
 
 route '*' do

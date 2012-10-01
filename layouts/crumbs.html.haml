@@ -1,0 +1,10 @@
+%ul.breadcrumb.si-crumbs
+  - breadcrumbs_trail.each do |item|
+    - if item.nil?
+      %li hej
+    - elsif item == @item
+      %li.active= item[:title]
+    - else
+      %li
+        =link_to item[:title], item
+        %span.divider >
