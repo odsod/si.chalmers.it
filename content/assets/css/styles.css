@@ -3,6 +3,10 @@ body {
   padding-top: 40px;
 }
 
+.row {
+  /*background: white;*/
+}
+
 .si-crumbs {
   border: 1px solid #DDD;
   border-radius: 0;
