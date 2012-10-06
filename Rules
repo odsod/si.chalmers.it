@@ -13,6 +13,10 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+route '/2012/op/erfarna/pass4/' do
+  '/index.html'
+end
+
 preprocess do
   # Parse titles from first line of markdown files
   #@items.select { |i| i[:extension] == 'md' }.each do |i|
@@ -63,6 +67,11 @@ end
 # Directory pages
 compile '*' do
   layout 'directory'
+end
+
+
+route '/' do
+  nil
 end
 
 route '*' do

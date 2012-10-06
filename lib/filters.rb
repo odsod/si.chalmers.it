@@ -6,7 +6,7 @@ class IncludeJava < Nanoc::Filter
       file = File.open(@item.children.find{ |i| i.binary? && i.raw_filename.split('/').last == file }.raw_filename)
       ret = ""
       file.each { |line| ret << "    " + line }
-      ret << "{: .prettyprint .linenums .lang-java}\n" 
+      ret << "{: .prettyprint .lang-java}\n" 
       ret
     end
   end

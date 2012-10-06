@@ -2,9 +2,15 @@
   %head
     = render 'head'
   %body
+    =render 'menu'
     .container
       .row
-        = render 'crumbs'
+        .span12
+          .page-header
+            %h1= @item[:title]
       .row
-        %h2 haha
-        = yield
+        .span6
+          %ul.nav.nav-pills.nav-stacked
+            - @item.children.each do |child|
+              %li
+                %a{:href => child.path}= child[:title]
