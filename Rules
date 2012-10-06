@@ -51,9 +51,8 @@ compile '/*/*/*/*/' do
   unless item.binary?
     filter :prettyprintinline
     filter :bootstrapify
-    filter :includejava
-    filter :subheaders
     filter :maruku
+    filter :prettyprint
     layout 'exercises'
   end
 end

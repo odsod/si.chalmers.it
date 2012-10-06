@@ -15,8 +15,46 @@ Ge korta exempel för vardera av ovanstående fall!
 Lite uppmjukande Swing
 ----------------------
 
-LiteSwing.java
-	
+    import java.awt.*;
+    import javax.swing.*;
+
+    public class LiteSwing implements ActionListener {
+
+      private JFrame  fonstret;
+      private JButton knapp1;
+      private JButton knapp2;
+
+      public LiteSwing() {
+        fonstret = new JFrame();
+        fonstret.setTitle("Uppgift 1");
+        knapp1 = new JButton();
+        knapp1.setText("Knapp 1");
+        knapp1.addActionListener(this);
+        knapp2 = new JButton();
+        knapp2.setText("Knapp 2");
+        knapp2.addActionListener(this);
+        fonstret.setLayout(new GridLayout(2,1));
+        fonstret.add(knapp1);
+        fonstret.add(knapp2);
+        fonstret.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fonstret.pack();
+        fonstret.setVisible(true);
+      }
+
+      public void actionPerformed(ActionEvent e) {
+        System.out.println("Du tryckte pa en knapp!");
+        if (e.getSource() == knapp1) {
+          System.out.println("Trololol!");
+        }
+      }
+
+      public static void main(String[] args) {
+        new LiteSwing();
+      }
+
+    }
+{:.prettyprint}
+
 ### Konstruktorn
     
 Förklara rad för rad vad som händer när konstruktorn exekveras.
@@ -61,7 +99,24 @@ Liknande labben? ''Tentauppgift: 2006-12-19, Erland, 14p/40p''
 
 En klass med följande gränssnitt finns tillgänglig.
 
-Digit.java
+    import java.awt.*;
+
+    public abstract class Digit {
+
+      // prefered, but not mandatory, colors
+      // color is set in Digit by calling getForeground()
+      // so users of the class can set color by calling setForeground
+      public static final Color greenDigit = Color.green;
+      public static final Color redDigit = Color.red;
+      public static final Color backgroundColor = Color.black;
+
+      public Digit() {/* sets the digit to 0 */}
+      public Digit(int n) {/* sets the digit to n */}
+      abstract public void setNumber(int n); // sets the digit to n
+      abstract public int getNumber(); // returns the current digit
+      abstract public void paintComponent(Graphics g); // repaints the digit
+
+    }
 
 I denna uppgift kan du förutsätta en klass `DigitImplementation` som implementerar detta gränssnitt.
 

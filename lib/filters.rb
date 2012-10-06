@@ -1,16 +1,9 @@
-class IncludeJava < Nanoc::Filter
-  identifier :includejava
+class PrettyPrint < Nanoc::Filter
+  identifier :prettyprint
 
   def run(content, params={})
-    content = content.gsub(/^\w+\.java/) do |file| 
-      file = File.open(@item.children.find{ |i| i.binary? && i.raw_filename.split('/').last == file }.raw_filename)
-      ret = ""
-      file.each { |line| ret << "    " + line }
-      ret << "{: .prettyprint .lang-java}\n" 
-      ret
-    end
+    content = content.gsub(/<pre>/, '<pre class="prettyprint">')
   end
-
 end
 
 class PrettyPrintInline < Nanoc::Filter
@@ -23,22 +16,11 @@ class PrettyPrintInline < Nanoc::Filter
   end
 end
 
-class Subheaders < Nanoc::Filter
-  identifier :subheaders
-
-  def run(content, params={})
-    content = content.gsub(/''.+''/) do |subheader|
-      "<small>" << subheader.gsub("'", "") << "</small>"
-    end
-  end
-end
-
 class Bootstrapify < Nanoc::Filter
   identifier :bootstrapify
 
   def run(content, params={})
-    content = content.gsub(/^---*$/) do |header|
-      header << "\n{:.page-header}"
-    end
+    content.gsub(/^---*$/) { |s| s << "\n{:.page-header}" }
+    .gsub(/''.+''/) { |s| "<small>" << s.gsub("'", "") << "</small>" }
   end
 end
