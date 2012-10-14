@@ -23,6 +23,11 @@ preprocess do
   #i[:title] = i.raw_content.split("\n").first
   #end
   @items.each do |i|
+    if i[:extension] == 'pdf'
+      new = (Nanoc::Item.new '', {}, i.identifier + '_html')
+      new[:make_html] = true
+      @items << new
+    end
     if i[:extension] == 'md'
       i[:title] = i.raw_content.split("\n").first
     else
@@ -53,7 +58,7 @@ compile '/*/*/*/*/' do
     filter :bootstrapify
     filter :maruku
     filter :prettyprint
-    layout 'exercises'
+    layout 'exercise'
   end
 end
 
@@ -83,4 +88,4 @@ route '*' do
   end
 end
 
-layout '*', :haml, :format => :html5
+layout '*', :slim

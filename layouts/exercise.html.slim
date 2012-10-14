@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    == render 'head'
+    link href="/assets/css/exercises.css" rel="stylesheet"
+    link href="/assets/css/bootstrap-pretty.css" rel="stylesheet"
+    script src="/assets/js/prettify.js"
+  body onload="prettyPrint()"
+    == render "menu"
+    .container
+      .row
+        == yield

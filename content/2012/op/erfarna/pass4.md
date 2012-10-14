@@ -53,7 +53,6 @@ Lite uppmjukande Swing
       }
 
     }
-{:.prettyprint}
 
 ### Konstruktorn
     
