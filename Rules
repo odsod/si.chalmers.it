@@ -13,7 +13,7 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-route '/2012/op/erfarna/pass5/' do
+route '/2012/op/erfarna/pass6/' do
   '/index.html'
 end
 
