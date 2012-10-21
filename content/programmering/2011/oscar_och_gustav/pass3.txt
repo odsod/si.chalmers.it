@@ -1,0 +1,108 @@
+1. Arv & överskuggning
+
+	Vad skrivs ut?
+
+	class A {
+	    public void skriv() {
+	        System.out.println("A");
+	    }
+	}
+
+	class B extends A {
+	    public void skriv() {
+	        System.out.println("B");
+	    }
+	}
+
+	public class Utskrift {
+	    public static void main(String[] arg) {
+
+	        A a  = new A();
+	        A a2 = new B();
+	        B b  = new B();
+	       
+	        a.skriv();
+	        a2.skriv();
+	        b.skriv();
+	    }
+	}
+
+2. Arv & polymorfism.
+
+	Class A {
+	    ...
+	}
+	Class B extends A {
+	    ...
+	}
+	Class C extends B {
+	    ...
+	}
+
+	Vilka av följande utryck är giltiga?
+
+	A a = new A();
+	A a = new B();
+	A a = new C();
+
+	B b = new A();
+	B b = new B();
+	B b = new C();
+
+	C c = new A();
+	C c = new B();
+	C c = new C();
+
+3. Lite Dig o Dat?
+
+	Vad skrivs ut?
+
+	System.out.println(5 < a && 3 > b == !(!(5 < a) || !(3 > b)));
+
+	(Taget från Erlands tenta i Programmeringsteknik för F 2008)
+
+4. Sant eller falskt?
+
+	a) 	Uttrycket nedan kompilerar ok. (Antag att o inte deklarerats tidigare)
+			Object o = new Integer(5);
+
+	b) 	Uttrycket nedan evalueras till sant
+			new Integer(11) == new Integer(11)
+
+	c) 	En statisk medlemsmetod kan referera icke statiska variabler i samma 
+		klass men endast efter att en instans av klassen skapats.
+
+	d)	När ett objekt skickas som argumet till en metod så kan metoden 
+		ändra objektet.
+
+	(Taget från Erlands tenta i Programmeringsteknik för F 2007)
+
+5) Hitta primtal!
+
+	Stora primtal är värdefulla inom kryptografin. 
+	Hittar man tillräckligt stora primtal kan dessa vara värda upp till $250,000.
+
+	Ett enkelt sätt att hitta primtal är att använda Eratosthenes såll.
+
+	För att hitta alla primtal mellan 1 och n skall man enligt Wikipedia 
+	göra på följande sätt:
+
+	1.	Gör en lista över alla tal från två till något valbart största tal n.
+	2. 	Stryk ut från listan alla jämna tal som är större än två (4, 6, 8 osv.).
+	3. 	Listans nästa tal som inte är utstruket är ett primtal.
+	4. 	Stryk ut alla tal, som är både större än det primtalet du hittade i 
+		föregående steget och multiplar av det.
+	5. 	Upprepa stegen 3 och 4 tills du har nått ett nummer som är större än 
+		kvadratroten av n (det största talet i listan).
+	6. 	Alla kvarstående tal i listan är primtal.
+
+	Skriv en metod, som givet en positiv heltalsparameter n, hittar alla primtal 
+	mellan 1 och n. (Tips: använd en array av boolean variabler!)
+
+	(Från gammal Skansholm-tenta)
+
+b)
+
+	För att ett primtal skall vara värt $250,000 skall det ha minst 10^9 siffror. 
+	Hur stora primtal kan vi som störst hitta med hjälp av vår Java-metod? 
+	(Tips: kuggfråga!)

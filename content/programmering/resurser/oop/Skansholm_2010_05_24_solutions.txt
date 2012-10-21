@@ -1,0 +1,226 @@
+    // Lösningar till tentamen 2010-05-24
+
+    // Uppgift 1a
+
+    Utskriften blir: 41
+
+    // Uppgift 1b
+
+    rad 1: korrekt
+    rad 2: felaktig, man får inte skriva new List eftersom List är ett gränssnitt
+    rad 3: felaktig, det skall stå namnet på en typ mellan <>
+    rad 4: korrekt
+    rad 5: felaktig, elementen i en lista måste vara referenser, men double är en enkel typ
+    rad 6: felaktig, det måste vara samma typ på båda sidorna om likhetstecknet
+
+
+    // Uppgift 1c
+
+    Utskrift:
+      lika
+      olika
+    s1, s2 och s3 är referenser till String-objekt och det är referenserna som jämförs i 
+    if-satserna, inte det de refererar till. I det första fallet tilldelas referensen s1
+    till referensen s2. Dessa referenser är således lika. I det andra fallet skapas först 
+    ett nytt String-objekt som referar till  texten "hej". Därefter skapas ytterligare ett
+    nytt String-objekt som kommer att referera till texten "HEJ". Referensen till detta
+    objekt tilldelas till s3, som alltså refererar till ett annat String-objekt än s1.
+
+
+    // Uppgift 2    
+     interface Function {
+       public double apply(double x);
+     }
+     
+     class Square implements Function {
+       public double apply(double x) {
+         return x*x;
+       }
+     }
+     
+     class Root implements Function {
+       public double apply(double x) {
+         return Math.sqrt(x);
+       }
+     }
+     
+     
+       public static double[] MakeArray(double[] a, Function f) {
+         double[] b = new double[a.length];
+         for (int i=0; i<b.length; i++)
+           b[i] = f.apply(a[i]);
+         return b;
+       }
+     
+     
+       double[] w = MakeArray(v, new Square());
+       double[] r = MakeArray(v, new Root());
+
+
+    // Uppgift 3    
+
+    public static int[] antalMandat(int[] antalRöster,
+                                        int totalaAntaletMandat) {
+      int[] mandat = new int[antalRöster.length];
+      double[] jfrTal = new double[antalRöster.length];
+      // Från början har varje parti 0 mandat och jämförelsetalet röstantal/1.4
+      for (int i = 0; i < antalRöster.length; i++) {
+        mandat[i] = 0;
+        jfrTal[i] = antalRöster[i] / 1.4;
+      }
+      for (int i = 0; i < totalaAntaletMandat; i++) {
+        // Ta reda på vilket parti som ska ha nästa mandat
+        int bästaParti = 0;
+        for (int j = 1; j < antalRöster.length; j++)
+          if (jfrTal[j] > jfrTal[bästaParti])
+            bästaParti = j;
+        // Det parti som nu har högst jämförelasetal och därmed ska få
+        // nästa mandat har nu index bästaParti
+        mandat[bästaParti]++;
+        // Räkna ut nytt jämförelsetal för bästa parti
+        jfrTal[bästaParti] = antalRöster[bästaParti] /
+                            (double) (2 * mandat[bästaParti] + 1);
+      }
+      return mandat;
+    }
+
+    // Uppgift 4 
+    
+     import java.awt.*;
+     import javax.swing.*;
+    
+     public class Tarning extends JPanel {
+       private int värde;
+       Prick[] prick = new Prick[9];
+    
+       public Tarning() {
+         this((int) (Math.random() * 6) + 1);
+       }
+    
+       public Tarning(int v) {
+         setLayout(new GridLayout(3,3));
+         for (int i=0; i <9; i++) {
+           prick[i] = new Prick();
+           add(prick[i]);
+           prick[i].setBackground(Color.black);
+         }
+         sättVärde(v);
+       } 
+    
+       public int  avläsVärde() {
+         return värde;
+       }
+    
+       public void sättVärde(int v) {
+         if (v < 1 || v > 6)
+           throw new IllegalArgumentException();
+         värde = v;  
+         repaint();  
+       }
+    
+       public void kasta() {
+         värde = (int) (Math.random() * 6) + 1;
+         repaint();  
+       }
+           
+      public void paintComponent(Graphics g) {
+         super.paintComponent(g);
+         for (int i=0; i <9; i++) 
+           prick[i].setForeground(Color.black);    // alla svarta från början
+         if (värde % 2 == 1)  // udda nummer
+           prick[4].setForeground(Color.white); 
+         if (värde >= 2) {
+           prick[0].setForeground(Color.white);
+           prick[8].setForeground(Color.white);
+         }
+         if (värde >= 4) {
+           prick[2].setForeground(Color.white); 
+           prick[6].setForeground(Color.white);
+         }
+         if (värde == 6) {
+           prick[3].setForeground(Color.white);
+           prick[5].setForeground(Color.white);
+         }
+         for (int i=0; i <9; i++) 
+           prick[i].repaint();
+       }
+     }
+    
+    
+    // Uppgift 5
+    
+    import java.awt.*;
+    import java.awt.event.*;
+    import javax.swing.*;
+    
+    public class TarningTest extends JFrame implements ActionListener {
+    
+      Tarning t1 = new Tarning(),
+              t2 = new Tarning();
+      JButton  b = new JButton("Kasta");
+      JPanel p1 = new JPanel(),
+             p2 = new JPanel();
+      JLabel sum = new JLabel("Summa: " + (t1.avläsVärde()+t2.avläsVärde()));
+    
+      public TarningTest() {
+        Container c = getContentPane();
+        c.add(p1, BorderLayout.CENTER);
+        c.add(p2, BorderLayout.SOUTH);
+        p1.setLayout(new GridLayout(1,2,2,0));
+        p2.setLayout(new FlowLayout());
+        p1.add(t1);
+        p1.add(t2);
+        p2.add(b);
+        p2.add(sum);
+        b.addActionListener(this);
+        setSize(200,150);
+        setDefaultCloseOperation(EXIT_ON_CLOSE); 
+        setVisible(true);
+      }
+    
+      public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == b) {
+          t1.kasta(); t2.kasta();
+          sum.setText("Summa: " + (t1.avläsVärde()+t2.avläsVärde()));
+        }
+      }
+    
+      public static void main(String[] arg) {
+        new TarningTest();
+      }
+    } 
+
+    // Uppgift 6
+    import java.util.*;
+    import java.io.*;
+    import javax.swing.*;
+    
+    public class BilRegister {
+      public static void main(String[] arg) throws FileNotFoundException {
+      Map<String, Bil> tab = new HashMap<String, Bil>();
+      Scanner sc = new Scanner(new File("register.txt"));
+      while (sc.hasNext()) {
+        String regno = sc.nextLine();
+        Bil b = new Bil(sc.nextLine(), sc.nextLine(), sc.nextLine());
+        tab.put(regno, b);
+      }
+      while (true) {
+        String regno = JOptionPane.showInputDialog("Registreringsnummer?");
+        if (regno == null)
+          break;
+        Bil b = tab.get(regno);
+        if (b != null)
+          JOptionPane.showMessageDialog(null, b.modell+"\n"+b.ägare+"\n"+b.adress);
+        else
+          JOptionPane.showMessageDialog(null, "Felaktigt registreringsnummer"); 
+      } 
+      }
+    }    
+   
+
+
+
+
+
+
+

@@ -1,0 +1,552 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass exam
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 0 10 -1
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+
+\lang swedish
+SI-pass 5 OOP
+\end_layout
+
+\begin_layout Description
+
+\lang swedish
+Handledare: Oscar Söderlund
+\end_layout
+
+\begin_layout Description
+
+\lang swedish
+Mail: soscar@student.chalmers.se
+\end_layout
+
+\begin_layout Standard
+
+\lang swedish
+\begin_inset VSpace 1em
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang swedish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{questions}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Som du vet kan man inte ändra ett tecken i ett String-objekt.
+ Därför skall du här göra en egen (bättre) klass OurString där detta är
+ möjligt.
+ (Att det redan finns en annan färdig klass i Java för detta får du givetvis
+ inte utnyttja).
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Klassen skall internt representera texten med ett fält (array) av tecken.
+ Klassen skall ha en konstruktor med en text (av typen String) som parameter.
+ Konstruktorn skall initiera det interna fältet.
+ Dessutom skall klassen ha instansmetoderna:
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item int antal() Ger antalet tecken i strängen.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item void byt(int i, char c) Ersätter det i:te tecknet med c.
+ Om i ligger utanför gränserna för strängen skall en exception av standardklasse
+n IndexOutOfBoundsException genereras.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item void utökaMed(String s) Lägger in tecknen i s efter dem som redan finns
+ i texten.
+ Detta kräver att du bildar ett längre fält.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item String toString() Returnerar innehållet i objektet som en String.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Man har i en textfil samlat uppgifter om ett antal personer.
+ För varje person finns två rader i filen.
+ På första raden står personens namn och adress och på andra raden finns
+ personens ålder, längd och vikt.
+ Längden anges i cm och vikten i kg.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Man vill göra en medicinsk studie av överviktiga personer och söker därför
+ personer vilkas s.k.
+ body mass index (förkortat BMI) överstiger värdet 30.
+ BMI beräknas enligt formeln m/h2 där m är vikten i kg och h längden i m.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Skriv ett program som läser filen med personuppgifter.
+ Programmet skall skapa en ny textfil som bara innehåller uppgifterna för
+ de personer vilkas BMI överstiger 30.
+ Filernas namn skall läsas in från kommandoraden.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Ett primtal är ett tal som endast är jämnt delbart med 1 och med sig själv.
+ En teknik att finna primtal går under namnet Eratosthenes såll.
+ Den går till på följande sätt:
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Man använder ett fält där elementen har typen 
+\backslash
+texttt{boolean}.
+ Från början sätts element nummer 
+\backslash
+texttt{0} och 
+\backslash
+texttt{1} till 
+\backslash
+texttt{false} och alla övriga element i fältet till 
+\backslash
+texttt{true}.
+ Därefter löper man igenom fältet med början på index 
+\backslash
+texttt{2}.
+ När man stöter på ett element (låt oss säga att det har nummer 
+\backslash
+texttt{i}) som har värdet 
+\backslash
+texttt{true} gör man följande.
+ Löp igenom resten av fältet (fr.o.m.
+ 
+\backslash
+texttt{i+1} till fältets slut) och sätt varje element som har den egenskapen
+ att dess index är en jämn multipel av 
+\backslash
+texttt{i} till 
+\backslash
+texttt{false}.
+ När man t.ex.
+ kommer till element nr.
+ 
+\backslash
+texttt{5} så skall elementen 
+\backslash
+texttt{10}, 
+\backslash
+texttt{15}, 
+\backslash
+texttt{20} etc.
+ i fältet ges värdet 
+\backslash
+texttt{false}.
+ När denna process är avslutad visar de element i fältet som fortfarande
+ har värdet 
+\backslash
+texttt{true} vilka index som är primtal.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Konstruera ett program som använder denna teknik för att beräkna och skriva
+ ut alla primtal som är mindre än eller lika med 1000.
+ Utskriften skall ske i ett kommandofönster.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage{}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Antag att alla resultat från en tenta finns sparade i en textfil.
+ Varje person står på en egen rad i filen och informationen är skriven på
+ följande form:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+personnummer efternamn förnamn u1 u2 u3 u4 u5 u6
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{u1}, 
+\backslash
+texttt{u2}, ...
+ står för poängen på de enskilda uppgifterna.
+ (Antag att bara hela poäng delas ut.) På tentan kunde man få något av betygen
+ U, 3, 4, eller 5.
+ För att få betyget 5 krävdes minst 48 poäng, för en 4:a minst 36 poäng
+ och för en 3:a minst 24 poäng.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Nu vill man ha informationen i filen uppdelad så att de som tentat delas
+ upp i fyra separata filer.
+ De med betyget 5 skall hamna i en fil, de med betyget 4 i en annan fil,
+ de med betyget 3 i en tredje fil och de som blev underkända i en fjärde
+ fil.
+ Raderna i de fyra filerna skall ha samma utseende som i den ursprungliga
+ filen, fast sist på varje rad 
+\backslash
+emph{skall den totala poängen för eleven också skrivas ut}.
+ Uppgiften är att skriva ett program som gör denna uppdelning.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Namnet på den ursprungliga filen skall läsas in från kommandoraden.
+ (Om du inte vet hur man gör detta får du, mot ett poängavdrag, läsa in
+ filnamnet från en dialogruta.) Du får alltså inte i ditt program förutsätta
+ att den ursprungliga filen har ett visst, förutbestämt namn.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+De fyra filer som skall skapas av programmet skall ha samma namn som den
+ ursprungliga filen fast med tilläggen 5, 4, 3 resp.
+ u omedelbart före punkten framför suffixet.
+ Om den ursprungliga filen t.ex.
+ heter 
+\backslash
+texttt{resultat.txt} så skall alltså de fyra filerna heta 
+\backslash
+texttt{resultat5.txt}, 
+\backslash
+texttt{resultat4.txt}, 
+\backslash
+texttt{resultat3.txt} resp.
+ 
+\backslash
+texttt{resultatu.txt}.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Om den ursprungliga filens namn inte innehåller någon punkt skall tillläggen
+ 
+\backslash
+texttt{5}, 
+\backslash
+texttt{4}, 
+\backslash
+texttt{3} resp.
+ 
+\backslash
+texttt{u} finnas sist i filnamnen.
+ Om den ursprungliga filen t.ex.
+ heter 
+\backslash
+texttt{resultat} så skall alltså de fyra filerna heta 
+\backslash
+texttt{resultat5}, 
+\backslash
+texttt{resultat4}, 
+\backslash
+texttt{resultat3} resp.
+ 
+\backslash
+texttt{resultatu}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{questions}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

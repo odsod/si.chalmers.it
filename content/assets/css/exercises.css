@@ -1,6 +1,9 @@
 .exercise h1 {
   color: #5a5a5a;
-  text-align: center;
+}
+
+.exercise ul li h1 {
+  display: block;
 }
 
 /*Exercise counter: h2*/
@@ -17,11 +20,16 @@
 /*Part counter: h3*/
 
 .exercise h2 {
+  margin: -15px;
+  padding-left: 15px;
   color: #5a5a5a;
   margin-top: 1em;
-  padding-bottom: 10px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
   counter-reset: part;
-  border-bottom: 1px solid #e1e1e8;
+  border: 1px solid #e1e1e8;
+  background: #eee;
 }
 
 .exercise h3:before {

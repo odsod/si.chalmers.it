@@ -1,0 +1,59 @@
+1) Vad skrivs ut när följande program exekveras?
+
+public class EnKlass {
+
+	private int x, y;
+	private static int z;
+
+	public EnKlass(int a, int b, int c) {
+		x = a;
+		y = b;
+		z = c;
+	}
+
+	public String toString() {
+		return x + " " + y + " " + z;
+	}
+
+}
+
+public class StatTest {
+
+	public static void main(String[] s) {
+
+		EnKlass a = new EnKlass(1, 2, 3);
+		EnKlass b = new EnKlass(4, 5, 6);
+		System.out.println(a);
+		System.out.println(b);
+
+	}
+}
+
+2) Förklara skillnaden mellan följande begrepp:
+
+klass		vs 	objekt
+instansvariabel vs 	klassvariabel
+instansmetod 	vs 	klassmetod
+private		vs 	public (vs protected)
+int		vs 	Integer
+equals() 	vs	==
+
+3) Förklara innebörden av följande begrepp:
+
+final
+konstruktor
+getter
+setter
+gränssnitt
+
+4) Skriv en klass som representerar en cirkel. Cirkeln ska ha en position och en storlek. 
+   Det skall finnas:
+ 	En konstruktor. 
+	Metoder för att ändra och läsa av koordinaterna och storleken. 
+	En Metod för att kolla om en punkt befinner sig inne i cirkeln.
+	En Metod för att kolla cirkeln skär (överlappar) en annan cirkel.
+	
+
+
+
+5) Primtalspalindrom lolololol

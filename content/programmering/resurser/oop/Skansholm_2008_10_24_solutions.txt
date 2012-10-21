@@ -1,0 +1,207 @@
+    // Lösningar till tentamen för IT1 2008-10-24
+    
+    // Uppgift 1
+    
+    Kompileringsfel: Uttrycket (t.charAt(i) >= '0' &&  <= '9') är felaktigt, 
+                     skall skrivas (t.charAt(i) >= '0' &&  t.charAt(i) <= '9')
+    Logiskt fel:
+      Programmet visar en dialogruta för varje korrekt tecken samt för det första felaktiga.
+      Förslag till rättelse:
+    
+      public static void main (String[] arg) {
+        String t = JOptionPane.showInputDialog("Ett tal?");
+        boolean ok = true;    // korrekt, än så länge
+        for (int i=1; i<=t.length(); i++)
+          if (t.charAt(i) < 0 || t.charAt(i) > 9) {
+            ok = false;       // inte längre korrekt
+            break;
+          }
+        if (ok)
+          JOptionPane.showMessageDialog(null,"Talet är OK"); 
+        else       
+          JOptionPane.showMessageDialog(null,"Inget tal"); 
+        System.exit(0);
+      }
+    
+    Exekveringsfel: Indexering sker från 0, vilket betyder att uttrycken i for-satsen är felaktiga
+                    Skall  vara:
+                    for (int i=0; i<t.length(); i++)
+    
+    // Uppgift 2
+    
+    public class Verktyg {
+      // deluppgift a
+      public static int platsFör(int k, int n) {
+        if (k == n)  // klarar även k==0, n==0
+          return 0; 
+        for (int i=0; n>0; n/=10, i++)
+          if (n%10 == k)
+            return i;
+        return -1;   // fanns ej
+      }
+    
+      //deluppgift b
+      public static int[] innehåller(int k, int n) {   // ger {plats, antal}
+        if (k == n)
+          return new int[] {0,1};   // klarar även k==0, n==0
+        int[] resultat = new int[] {-1,0};       
+        for (int i=0; n>0; n/=10, i++)
+          if (n%10 == k) {
+            resultat[1]++;
+            if (resultat[0] < 0)
+              resultat[0] = i;
+          }
+        return resultat;
+      }
+    }
+       
+     // Uppgift 3
+
+     import java.io.*;
+     import java.util.*;
+     import javax.swing.*;
+
+     public class BMI {
+       public static void main(String[] arg) throws IOException {
+         String namn = JOptionPane.showInputDialog("Infilens namn?");
+         Scanner sc = new Scanner(new File(namn));
+         namn = JOptionPane.showInputDialog("Utfilens namn?");
+         PrintWriter utström = new PrintWriter
+                              (new BufferedWriter(new FileWriter(namn)));                         
+         while(sc.hasNext()) {
+           String rad1 = sc.nextLine();
+           int ålder = sc.nextInt();
+           int längd = sc.nextInt();
+           double vikt = sc.nextDouble();
+           sc.nextLine();  // avsluta rad 2
+           double bmi = vikt / (0.01*längd*0.01*längd);
+           if (bmi > 30) {
+             utström.println(rad1);
+             utström.println(ålder + " " + längd + " " + vikt);
+           }
+         }
+         utström.close();
+       }
+     }
+
+     // Uppgift 4
+     public class ProduktId {
+
+      private static int antal;   // antal hittills
+      private static int nr;      // senaste id-nummer
+    
+      private String namn;        // denna produkts namn
+      private int id;             // denna produkts id-nummer
+    
+      ProduktId (String namn) {
+        this.namn = namn;
+        nr++;                    // prova med nästa nummer
+        while (true) {
+          int i4 = Verktyg.platsFör(4, nr);
+          int i7 = Verktyg.platsFör(7, nr);
+          if (i4 < 0 && i7 < 0)
+            break;               // inga 4:or eller 7:or
+          if (i4 >= 0) 
+            nr += Math.pow(10, i4);
+          if (i7 >= 0) 
+            nr += Math.pow(10, i7); 
+        }     
+        id = nr;
+        antal++;
+      }
+    
+      public int avläsId() {
+        return id;
+      }
+    
+      public String avläsNamn() {
+        return namn;
+      }
+    
+      public static int avläsAntal() {
+        return antal;
+      }
+    }
+
+  
+    // Uppgift 5
+    
+    public static int[] antalMandat(int[] antalRöster,
+                                    int totalaAntaletMandat) {
+      int[] mandat = new int[antalRöster.length];
+      double[] jfrTal = new double[antalRöster.length];
+      // Från början har varje parti 0 mandat och jämförelsetalet röstantal/1.4
+      for (int i = 0; i < antalRöster.length; i++) {
+        mandat[i] = 0;
+        jfrTal[i] = antalRöster[i] / 1.4;
+      }
+      for (int i = 0; i < totalaAntaletMandat; i++) {
+        // Ta reda på vilket parti som ska ha nästa mandat
+        int bästaParti = 0;
+        for (int j = 1; j < antalRöster.length; j++)
+          if (jfrTal[j] > jfrTal[bästaParti])
+            bästaParti = j;
+        // Det parti som nu har högst jämförelsetal och därmed ska få
+        // nästa mandat har nu index bästaParti
+        mandat[bästaParti]++;
+        // Räkna ut nytt jämförelsetal för bästa parti
+        jfrTal[bästaParti] = antalRöster[bästaParti] /
+        (double) (2 * mandat[bästaParti] + 1);
+      }
+      return mandat;
+    }
+
+
+    // Uppgift 6
+    import javax.awt.*;
+    import javax.swing.*;
+    import java.util.*;
+    
+    public class Histogram extends JPanel {
+    
+      java.util.List<Double> v;   // det finns en klass List i java.awt också
+    
+      public Histogram() {
+        v = new ArrayList<Double>();
+      }
+    
+      public Histogram(double[] a) {
+        this();
+        setValues(a);
+      }
+    
+      public void setValues(double[] a) {
+          v.clear();
+          for (double d : a)
+             v.add(d);
+          redrawHistogram();
+      }
+    
+      public void addValue(double d) {
+          v.add(d);
+          redrawHistogram();
+      }      
+    
+      private void  redrawHistogram() {    
+          removeAll();
+          double max= -Double.MAX_VALUE;
+          for (double d : v) {
+            if (d > max)
+              max = d; 
+          } 
+          setLayout(new GridLayout(1,v.size(),5,0));
+          for (double d : v) {
+            Stapel st = new Stapel(true);
+            st.sättProcent(d/max*100);
+            st.setForeground(Color.red);
+            add(st);
+          }
+          revalidate();
+          repaint();
+        }
+    }
+        
+                
+            
+        
+    

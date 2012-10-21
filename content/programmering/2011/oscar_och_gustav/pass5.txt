@@ -1,0 +1,112 @@
+1. Lite högljudda katter
+
+	public class Uppgift1 {
+		public static void main(String[] args) {
+			Animal animalOne = new Cat("Nisse");
+			SoundMaker animalTwo = new NyanCat("Lasse");
+			SoundMaker laser = new Laser();
+			Cat animalThree = new AdvancedCat("Laser-Glenn", new Laser());
+			SoundMaker[] soundmakers = {animalOne, animalTwo, laser, animalThree};
+			for(int i = 0; i < soundmakers.length; i++) {
+				System.out.println(soundmakers[i]);
+				soundmakers[i].makeSound();
+				System.out.println();
+			}
+		}
+	}
+	interface SoundMaker {
+		public void makeSound();
+	}
+	abstract class Animal implements SoundMaker {
+		private String name;
+		public String getName() { return name; }
+		public void setName(String name) { this.name = name; }
+	}
+	class Cat extends Animal {
+		public Cat(String name) { super.setName(name); }
+		@Override public void makeSound() { System.out.println("Meow Meow!"); }
+		@Override public String toString() { return "Cat named "+getName(); }
+	}
+	class NyanCat extends Cat {
+		public NyanCat(String name) { super(name); }
+		@Override public void makeSound() { System.out.println("Nyan Nyan!"); }
+		@Override public String toString() { return "NyanCat named "+getName(); }
+	}
+	class AdvancedCat extends Cat { 
+		private final SoundMaker soundMaker;
+		public AdvancedCat(String name, SoundMaker soundMaker) {
+			super(name);
+			this.soundMaker = soundMaker;
+		}
+		@Override public void makeSound() {
+			super.makeSound();
+			soundMaker.makeSound();
+		}
+		@Override public String toString() { return "Advanced"+super.toString(); }
+	}
+	class Laser implements SoundMaker {
+		@Override public void makeSound() { System.out.println("Pew Pew Pew!"); }
+		@Override public String toString() { return "Laser!!!"; }
+	}
+
+	a) Vad skrivs ut?
+
+	b) Rita upp klasshierarkin!
+	
+
+
+
+2. Lite klassterminologi
+
+	a) 	Hur vet man om man behöver skapa en klass, subklass, inre klass, abstrakt 
+		klass eller interface? 
+	b) 	Ge korta exempel för vardera av ovanstående fall!
+
+3. Lite designmönster
+
+	Givet klassen Clock, skriv ett program som i ett fönster kontinuerligt visar vad klockan är!
+
+	public class Clock extends Observable implements ActionListener {
+		private final Timer timer;
+		private int hours;
+		private int minutes;
+		private int seconds;
+
+		public Clock() {
+			timer = new Timer(1000, this);
+			timer.setRepeats(true);
+			hours = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+			minutes = Calendar.getInstance().get(Calendar.MINUTE);
+			seconds = Calendar.getInstance().get(Calendar.SECOND);
+			timer.start();
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == timer) { 
+				seconds += 1;
+				minutes += seconds / 60;
+				seconds = seconds % 60;
+				hours += minutes / 60;
+				minutes = minutes % 60;
+				setChanged();
+				notifyObservers();
+			}
+		}
+
+		public int getHours() { return hours; }
+		public int getMinutes() { return minutes; }
+		public int getSeconds() { return seconds; }	
+	}
+
+	Tips: 	Observable har en metod: public void addObserver(Observer o). 
+			Observer är ett interface som har en metod: public void update(Observable o, Object arg).
+		
+4. Lite spel
+
+	Alla har vi varit på Liseberg och spelat Whack-A-Mole. Det är ett spel där man skall banka på saker som ploppar upp ur hål. Skriv ett enkelt program som simulerar detta spel.
+
+	Tips:
+		 Konstruera ett rutnät av knappar som man kan trycka på.
+		 JButton har en metod public void setEnabled(boolean enabled).
+		 javax.swing.Timer kommer väl till hands...

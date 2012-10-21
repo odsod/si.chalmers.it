@@ -1,0 +1,249 @@
+    // Lösningar till tentamen 2009-01-12
+
+    // Uppgift 1a
+
+    1. En abstrakt klass kan, förutom abstrakta metoder även innehålla vanliga metoder, 
+       med metodkropp, som kan ärvas av subklasser. 
+       Ett gränssnitt kan inte innehålla fullständiga metoder.
+    2. En klass kan implementera flera gränssnitt, men en klass kan bara ha en enda 
+       superklass, även om superklassen är abstrakt.
+
+    // Uppgift 1b
+
+    Varje gång man anropar en instansmetod måste anropet alltid vara kopplat till ett visst 
+    specifikt objekt (det aktuella objektet "this"). Eftersom en klassmetod inte är kopplad
+    till något speciellt objekt, måste man ange objektets namn även när man gör ett anrop 
+    från samma klass.
+
+    // Uppgift 1c
+
+    Utskrift:
+      lika
+      olika
+    s1, s2 och s3 är referenser till String-objekt och det är referenserna som jämförs i 
+    if-satserna, inte det de refererar till. I det första fallet tilldelas referensen s1
+    till referensen s2. Dessa referenser är således lika. I det andra fallet skapas först 
+    ett nytt String-objekt som referar till  texten "hej". Därefter skapas ytterligare ett
+    nytt String-objekt som kommer att referera till texten "HEJ". Referensen till detta
+    objekt tilldelas till s3, som alltså refererar till ett annat String-objekt än s1.
+
+
+    // Uppgift 2
+
+     import javax.swing.*;
+     class RelPrimProg {
+
+       public static boolean relPrim(int i, int j) {
+         for (int k=2; k<=i && k<=j; k++)
+           if (i%k == 0 && j%k == 0)
+             return false;
+         return true;
+       }
+
+       /* Alternativ: Använd Euclides algoritm (övn 3.6 i boken) 
+          och se om resultatet == 1 */
+
+       public static void main(String arg[]) {
+         while(true) {
+           String s = JOptionPane.showInputDialog("Ange två heltal");
+           if (s == null)
+             break;
+           Scanner sc = new Scanner(s);
+           int a = sc.nextInt(), b = sc.nextInt();
+           if (relPrim(a,b))
+             JOptionPane.showMessageDialog(null, "Relativa primtal");
+           else
+             JOptionPane.showMessageDialog(null, "Inte relativa primtal");
+         }
+       }   
+     }
+
+
+     // Uppgift 3
+     
+     public class Complex {
+       private static final double epsilon = 1e-15;
+     
+       private double re, im;
+     
+       public Complex() {}
+     
+       public Complex(Complex z) {
+         this(z.re, z.im);
+       }
+     
+       public Complex(double rr, double ii) {
+         re = rr;
+         im = ii;
+       }
+     
+       public double getRe() {
+         return re;
+       }
+     
+       public double getIm() {
+         return im;
+       }
+     
+       public void add(Complex z) {
+         re=re + z.re;
+         im=im + z.im;
+       }
+      
+       public void mult(Complex z) {
+         re = re*z.re - im*z.im;
+         im = re*z.im + im*z.re;
+       }
+     
+       public boolean equals(Complex z) {
+         return Math.abs(re-z.re)<epsilon && Math.abs(im-z.im)<epsilon;
+       }
+      
+       public String toString() {
+         if (im >= 0)
+           return re + "+" + im + "*i";
+         else 
+           return re + "" + im + "*i";
+       }
+     }
+    
+
+    // Uppgift 4 
+    
+    import java.text.*;
+    
+    public class Lag implements Comparable<Lag> {   
+      private String namn;
+      private int antal;
+      private int plus;
+      private int minus;
+      private int poäng;
+    
+      public Lag(String namn) {
+        this.namn=namn;
+      }
+    
+      public String toString() {
+        return namn + "\t" + antal + "\t" + plus + "\t" + minus + "\t" + poäng;
+      }
+        
+      public void nyMatch(int gjorda, int insläppta) {
+        antal++;
+        if (gjorda > insläppta)
+          poäng +=3;
+        else if (gjorda == insläppta)
+          poäng++;
+        plus += gjorda;
+        minus += insläppta;
+      }
+    
+      public int compareTo(Lag l) {
+        int i1 = plus-minus;
+        int i2 = l.plus-l.minus;
+    
+        if (poäng < l.poäng || (poäng == l.poäng && i1 < i2))
+          return 1;
+        else if (poäng > l.poäng || (poäng == l.poäng && i1 > i2))
+          return -1;    
+        else {
+          Collator co = Collator.getInstance(); 
+          co.setStrength(Collator.PRIMARY);
+          return co.compare(namn, l.namn);
+        } 
+      }    
+    }
+
+
+  
+    // Uppgift 5
+  
+    import java.io.*;
+    import java.util.*;
+     
+    class Psprak {
+       public static void main (String[] arg) {
+         if (arg.length != 1) {
+           System.out.println("Fel antal argument");
+           System.exit(1);
+         }
+         // öppna infilen
+         Scanner sc = null;
+         try {
+           sc = new Scanner(new File(arg[0]));
+         }
+         catch (FileNotFoundException e) {
+           System.out.println("Filen " + arg[0] + " finns inte");
+           System.exit(2);
+         }
+         String vokaler = "aouåeiyäöAOUÅEIYÄÖ";
+         while (sc.hasNext()) {
+           String rad = sc.nextLine();
+           for (int i=0; i<rad.length(); i++) {
+             char c = rad.charAt(i);
+             System.out.print(c);
+             if (vokaler.indexOf(c)>=0) {
+               if (i+2 < rad.length() && rad.charAt(i+1) == 'p' && 
+                  Character.toLowerCase(rad.charAt(i+2)) == Character.toLowerCase(c)) 
+                 i += 2;
+               else {
+                 System.out.println();        
+                 System.out.println("Filen inehåller inte pspråk!");
+                 System.exit(0);
+               }
+             }
+           }
+           System.out.println();
+         }
+         System.out.flush();
+       }
+     }
+  
+  
+    
+    // Uppgift 6
+    
+    import java.awt.*;
+    import java.awt.event.*;
+    import javax.swing.*;
+    
+    public class RotatingLine extends JPanel implements ActionListener {
+      private double theta = 0;
+      private double omega;
+      private final int updateFrequency = 24;
+      private Timer timer;
+    
+      public RotatingLine(double omega) {
+        setRotationSpeed(omega);
+        setPreferredSize(new Dimension(500, 500));
+        timer = new Timer(1000/updateFrequency, this);
+        timer.start();
+      }
+    
+      public RotatingLine() {
+        this(0);
+      }
+    
+      public void setRotationSpeed(double omega) {
+        this.omega = omega;
+      }
+    
+      public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        int width = getWidth();
+        int height = getHeight();
+        int size = Math.min(width, height);
+        g.setColor(getForeground());
+        g.drawLine(width/2 - (int) (Math.cos(theta)*size/2),
+                   height/2 - (int) (Math.sin(theta)*size/2),
+                   width/2 + (int) (Math.cos(theta)*size/2),
+                   height/2 + (int) (Math.sin(theta)*size/2));
+      }
+    
+      public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == timer) {
+          theta += 2*Math.PI*omega/updateFrequency;
+          repaint();
+        }
+      }
+    }
+

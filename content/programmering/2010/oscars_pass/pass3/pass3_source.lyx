@@ -1,0 +1,571 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass exam
+\use_default_options true
+\language swedish
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 0 10 -1
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+SI-pass 3 OOP
+\end_layout
+
+\begin_layout Description
+Handledare: Oscar Söderlund
+\end_layout
+
+\begin_layout Description
+Mail: soscar@student.chalmers.se
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename pass3_img1.pdf
+	scale 240
+	BoundingBox 0bp 0bp 1bp 1bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0em
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{questions}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+I Java kan man enkelt representera rektanglar med hjälp av en standarklass
+ vid namn Rectangle, men det bryr vi oss inte om, för nu ska vi göra vår
+ egen (bättre) rektangelklass!
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Klassen skall heta Rectangle, och objekt av denna klass skall representera
+ rektanglar med hjälp av bredd, höjd, samt koordinaterna för rektangelns
+ övre vänstra hörn.
+ Samtliga numeriska värden skall lagras som heltal.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Klassen skall tillhandahålla:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item En parameterlös default-konstruktor, som skapar en rektangel med bredden
+ och höjden 50, samt koordinaterna (0,0).
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item En konstruktor som låter användaren (dvs.
+ programmeraren som använder klassen) själv specificera rektangelns utseende.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item Metoder för att avläsa kvadratens höjd och bredd, samt koordinater.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item En metod för att avläsa om rektangeln är kvadratisk.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item En metod, equals(Rectangle r), som avgör om två rektanglar är identiska.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item En metod, intersectsWith(Rectangle r), som avgör om två rektanglar
+ överlappar.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Skriv en klass, SixDie, vars syfte är att simulera en sexsidig tärning.
+ Klassen skall tillhandahålla en metod för att avläsa vilken sida av tärningen
+ som för tillfället är uppåt, samt en metod för att kasta tärningen.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Tips: Math.random()
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Betrakta följande javakod:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+1: int a;
+\end_layout
+
+\begin_layout Plain Layout
+
+2: a = 5;
+\end_layout
+
+\begin_layout Plain Layout
+
+3: int b = a;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+Betrakta sedan hur exekveringen av dessa rader kan illustreras med avseende
+ på variablernas innehåll och arbetsminnets utseende:
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=2.4]{pass3_img1}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Betrakta nu följande javakod:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+1: Car myCar;
+\end_layout
+
+\begin_layout Plain Layout
+
+2: myCar = new Car();
+\end_layout
+
+\begin_layout Plain Layout
+
+3: Car anotherCar = myCar;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+Gör en liknande illustration över hur arbetsminnet ser ut under exekveringen
+ av dessa kodrader.
+ Vad innehåller myCar och anotherCar-variablerna för värden?
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{questions}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Tentauppgifter
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1em
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+
+\lang english
+Här ser du ett felaktigt program.
+ Avsikten är att det skall läsa in en text och kontrollera att texten bara
+ innehåller siffror.
+ Programmet innehåller tre olika fel.
+ Det finns ett syntaxfel.
+ Om man rättar detta fel och provkör programmet visar det sig att det innehåller
+ ytterligare två fel: ett logiskt fel som gör att programmet inte utför
+ det som det skall och ett fel som kan resultera i ett exekveringsfel.
+ Ange vilka de tre felen är och ge för varje fel förslag på hur man kan
+ skriva för att rätta felet!
+\end_layout
+
+\begin_layout Quote
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+import javax.swing.*;
+\end_layout
+
+\begin_layout Plain Layout
+
+public class FinnTreFel {
+\end_layout
+
+\begin_layout Plain Layout
+
+   public static void main (String[] arg) {
+\end_layout
+
+\begin_layout Plain Layout
+
+      String t = JOptionPane.showInputDialog("Ett tal?");
+\end_layout
+
+\begin_layout Plain Layout
+
+      for (int i=1; i<=t.length(); i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+         if (t.charAt(i) >= '0' && <= '9')
+\end_layout
+
+\begin_layout Plain Layout
+
+            JOptionPane.showMessageDialog(null,"Talet är OK");
+\end_layout
+
+\begin_layout Plain Layout
+
+         else
+\end_layout
+
+\begin_layout Plain Layout
+
+            JOptionPane.showMessageDialog(null,"Inget tal");
+\end_layout
+
+\begin_layout Plain Layout
+
+         System.exit(0);
+\end_layout
+
+\begin_layout Plain Layout
+
+   }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\lang english
+(6 p)
+\end_layout
+
+\begin_layout Quote
+
+\lang english
+Ett personnummer, t.ex.
+ 561231-4913, består av tio siffror.
+ Efter de sex första siffrorna skall det finnas ett minustecken.
+ Den näst sista siffran är udda för män och jämn för kvinnor.
+ Den sista siffran är en kontrollsiffra.
+ Den beräknas på följande sätt: De nio första siffrorna i personnumret multiplic
+eras omväxlande med 2 och 1, den första med 2 den andra med 1 den tredje
+ med 2 osv.
+ Siffrorna i de värden man då får adderas.
+ I personnumret ovan blir det (1+0)+6+2+2+6+1+8+9+2 = 37.
+ (Observera att 10 räknas som 1+0.) Kontrollsiffran bestäms sedan av att
+ den summa man fått plus kontrollsiffran skall vara jämnt delbar med 10.
+ I exemplet blir alltså kontrollsiffran lika med 3.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+
+\lang english
+Skriv en klass Personnummer som innehåller ett personnummer.
+ Det skall finnas en konstruktor som får en String som parameter.
+ Konstruktorn skall kontrollera att parametern innehåller ett korrekt personnumm
+er (inklusive minustecknet).
+ Det skall också finnas en metod toString som returnerar det aktuella personnumr
+et som en String (med minustecken) samt två metoder ärMan respektive ärKvinna
+ vilka ger en boolean som anger om personen är en man eller en kvinna.
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\lang english
+(10 p)
+\end_layout
+
+\begin_layout Quote
+
+\lang english
+Ett s.k.
+ anagram får man om man utgår från ett ord eller en mening och kastar om
+ bokstäverna så att ett nytt ord eller en ny mening framträder.
+ Av ordet metodanrop kan man t.ex.
+ bilda anagrammet peta ond orm.
+ Skriv en klassmetod ärAnagram som undersöker om en text innehåller ett
+ anagram av en annan text.
+ De två texterna ges som parametrar till metoden.
+ Resultatet skall ha typen boolean.
+ Tips: Innan texterna jämförs kan man ta bort alla blanka tecken och se
+ till att endast små (eller stora) bokstäver används.
+\end_layout
+
+\begin_layout Standard
+\align right
+(10 p)
+\end_layout
+
+\end_body
+\end_document

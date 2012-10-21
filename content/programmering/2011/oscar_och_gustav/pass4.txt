@@ -1,0 +1,135 @@
+1. Lite uppmjukande Swing.
+	
+	public class Uppg1 implements ActionListener {
+	
+		private JFrame fönstret;
+		private JButton knapp1;
+		private JButton knapp2;
+		
+		public Uppg1() {
+			fönstret = new JFrame();
+			fönstret.setTitle("Uppgift 1");
+			knapp1 = new JButton();
+			knapp1.setText("Knapp 1");
+			knapp1.addActionListener(this);
+			knapp2 = new JButton();
+			knapp2.setText("Knapp 2");
+			knapp2.addActionListener(this);
+			fönstret.setLayout(new GridLayout(2,1));
+			fönstret.add(knapp1);
+			fönstret.add(knapp2);
+			fönstret.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			fönstret.pack();
+			fönstret.setVisible(true);
+		}
+	
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("Du tryckte på en knapp!");
+			if (e.getSource() == knapp1) {
+				System.out.println("Trololol!");
+			}
+		}
+	
+		public static void main(String[] args) {
+			new Uppg1();
+		}
+		
+	}
+	
+	a) Förklara rad för rad vad som händer när konstruktorn exekveras.
+	
+	b) Vad skrivs ut när man trycker på Knapp 1 respektive Knapp 2?
+	
+	c) Rita hur fönstret ser ut när programmet körs!
+	
+2. Lite härlig rekursion.
+
+	a) Vad skrivs ut?
+
+	public class Uppg2a {
+
+		public static int a(int[] x) {
+			return a(x, 0);
+		}
+
+		private static int a(int[] x, int n) {
+			if (n < x.length) {
+				System.out.println(x[n]);
+				return x[n] + a(x, n+1);
+			} else {
+				return 0;
+			}
+		}
+		
+		public static void main(String[] args) {
+			System.out.println(a(new int[]{2, 5, 6, 3, 8}); 
+		}
+	}
+
+	b) Vad skrivs ut?
+
+	public class Uppg2b {
+
+		public static int b(int[] x) {
+			return b(x, 0);
+		}
+
+		private static int b(int[] x, int n) {
+			if (n < x.length) {
+				int result = x[n] + b(x, n+1);
+				System.out.println(x[n]);
+				return result;
+			} else {
+				return 0;
+			}
+		}
+		
+		public static void main(String[] args) {
+			System.out.println(b(new int[]{2, 5, 6, 3, 8}); 
+		}
+
+	}
+
+3. Nu börjar det roliga!
+
+	Kombinatorik är ett område inom diskret matematik som spelar en stor roll för 
+	datavetenskapen. En kombination nCk beskriver på hur många sätt man kan välja 
+	k element ur en mängd med n element.
+
+	T.ex är 3C2 = 3 då det finns 3 sätt att välja 2 element ur en mängd med 3 element 
+	vilket visas nedan:
+	
+	Mängd med tre element: {A,B,C}, Delmängder med två element: {A,B},{A,C},{B,C}.
+
+	nCk kan definieras rekursivt genom:
+
+	nC0 = nCn = 1
+	nCk = (n-1)C(k-1) + (n-1)Ck, n,k >= 0, n >= k
+
+	a) Skriv en metod som beräknar kombinationen nCk rekursivt.
+
+	b) (Gör endast denna uppgiften i mån av tid)
+	
+	För stora värden på n och k kommer anroppet nCk = (n-1)C(k-1) + (n-1)Ck
+	utföra väldigt många identiska delberäkningar (rekursiva anrop).
+	Finns det något sätt att undvika detta?
+
+4. Dags att koda Swing!
+
+	Skriv ett program fungerar på följande vis: 
+	
+	 	Programmet visar ett fönster med fyra knappar och en panel.
+	 	Panelen skall vara i mitten av fönstret och knapparna runtomkring 
+		(till höger, vänster, ovanför och nedanför panelen).
+		Varje knapp skall representera en av de fyra färgerna: orange, gul, grå och turkos.
+		Texten på knapparna skall tala om vilken färg de representerar. 
+		När man klickar på någon av knapparna skall färgen på panelen sättas till den klickade
+		knappens färg.
+		Fönstrets titel skall vara "Uppgift 4".
+	
+	Tips: 	Color-klassen har klassvariabler i stil med Color.BLACK för de flesta färger,
+			dock ej turkos. Color har dock en konstruktor Color(int r, int g, int b) där 
+			färgens RGB-komponenter anges separat.
+	
+	Tips 2: Med hjälp av prefixet 0x kan man ange siffror på hexadecimal form. 
+			Till exempel evaluerar uttrycket (0xCD == 205) till true...	

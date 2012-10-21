@@ -1,0 +1,566 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass exam
+\use_default_options true
+\language swedish
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+SI-pass 1 OOP
+\end_layout
+
+\begin_layout Description
+Handledare: Oscar Söderlund
+\end_layout
+
+\begin_layout Description
+Mail: soscar@student.chalmers.se
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1em
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{questions}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Implementera en metod som skriver ut multiplikationstabellen för alla tal
+ mellan 1 och 10 till konsolfönstret.
+ Skriv sedan en mainmetod som anropar metoden.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Tips: Använd den så kallade escapesekvensen för tabulatortecknet, 
+\backslash
+textbackslash t, för att rada upp siffrorna jämnt.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Exempeloutput:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim} 
+\end_layout
+
+\begin_layout Plain Layout
+
+1    2    3    4    5    6    7    8    9    10   
+\end_layout
+
+\begin_layout Plain Layout
+
+2    4    6    8    10   12   14   16   18   20   
+\end_layout
+
+\begin_layout Plain Layout
+
+3    6    9    12   15   18   21   24   27   30   
+\end_layout
+
+\begin_layout Plain Layout
+
+4    8    12   16   20   24   28   32   36   40   
+\end_layout
+
+\begin_layout Plain Layout
+
+5    10   15   20   25   30   35   40   45   50   
+\end_layout
+
+\begin_layout Plain Layout
+
+6    12   18   24   30   36   42   48   54   60   
+\end_layout
+
+\begin_layout Plain Layout
+
+7    14   21   28   35   42   49   56   63   70   
+\end_layout
+
+\begin_layout Plain Layout
+
+8    16   24   32   40   48   56   64   72   80   
+\end_layout
+
+\begin_layout Plain Layout
+
+9    18   27   36   45   54   63   72   81   90   
+\end_layout
+
+\begin_layout Plain Layout
+
+10   20   30   40   50   60   70   80   90   100
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{parts}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+part 
+\end_layout
+
+\begin_layout Plain Layout
+
+Skriv en metod som skriver ut 
+\backslash
+textquotedblleft{}kvadrater
+\backslash
+textquotedblright{} i konsolfönstret.
+ Metoden skall ha en parameter som specificerar storleken på kvadraten.
+ Skriv sedan en mainmetod som anropar kvadratmetoden för att skriva ut en
+ kvadrat med höjden och bredden 7.
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Exempeloutput:
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+* * * * * * *     
+\end_layout
+
+\begin_layout Plain Layout
+
+* * * * * * *     
+\end_layout
+
+\begin_layout Plain Layout
+
+* * * * * * *     
+\end_layout
+
+\begin_layout Plain Layout
+
+* * * * * * *     
+\end_layout
+
+\begin_layout Plain Layout
+
+* * * * * * *
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+part
+\end_layout
+
+\begin_layout Plain Layout
+
+Skriv en metod som skriver ut 
+\backslash
+textquotedblleft{}trianglar
+\backslash
+textquotedblright{} i konsolfönstret.
+ Metoden skall ha en parameter som specificerar höjden på triangeln.
+ Skriv sedan en mainmetod som anropar metoden för att skriva ut en triangel
+ med höjden 5.
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+Exempeloutput:
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}   
+\end_layout
+
+\begin_layout Plain Layout
+
+    *
+\end_layout
+
+\begin_layout Plain Layout
+
+   * *
+\end_layout
+
+\begin_layout Plain Layout
+
+  * * *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * * * *     
+\end_layout
+
+\begin_layout Plain Layout
+
+* * * * *
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{parts} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{questions}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Tentauppgifter
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1em
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+Om man inte hade haft tillgång till standardklassen Math hade man kunnat
+ använda s.k.
+ Maclaurin-serier för att beräkna värdet av vissa vanliga funktioner.
+ Funktionen sin kan t.ex.
+ beräknas med följande oändliga serie:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+sin(x) = x - x^3/3! + x^5/5! - x^7/7! + x^9/9! - ...
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Skriv ett klass C som innehåller en klassmetod sin.
+ Metoden skall ha en parameter x av typen double och beräkna och returnera
+ värdet sin(x).
+ Beräkningen skall ske med hjälp av serien ovan.
+ Börja med att beräkna den första termen och beräkna sedan nästa term utgående
+ från den förra.
+ Upprepa detta tills den senaste termen som beräknats till beloppet blir
+ mindre än 10^-5.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align right
+(10 p)
+\end_layout
+
+\begin_layout Quote
+Skriv en klass Verktyg som innehåller en klassmetod med namnet platsFör.
+ Metoden platsFör skall ha två heltalsparametrar k och n.
+ Du får förutsätta att parametern k innehåller ett positivt ensiffrigt värde,
+ dvs.
+ ett värde i intervallet 0 till 9, och att n >= 0.
+ Metoden skall undersöka om, och i så fall var, den siffra som finns i k
+ förekommer i talet n.
+ Som resultat skall placeringen för siffran k anges.
+ Placeringen räknas från höger i talet.
+ Numreringen börjar på 0.
+ Om en siffra förekommer flera gånger skall den första förekomsten (från
+ höger räknat) anges.
+ Om siffran k inte finns i talet n skall resultatet -1 ges.
+ Det är i denna uppgift inte tilllåtet att göra om heltalen till typen String.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Några exempel: k=6 och n=2356 skall ge resultatet 0, k=6 och n=6350 resultatet
+ 3, k=6 och n=6360 resultatet 1 samt k=6 och n=4350 resultatet -1.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align right
+(5 p)
+\end_layout
+
+\begin_layout Quote
+Utöka klassen Verktyg med en klassmetod med namnet innehåller.
+ Denna metod skall ha samma parametrar som metoden platsFör.
+ Samma förutsättningar för parametrarna gäller också.
+ Metoden innehåller skall förutom att beräkna placeringen för siffran k
+ i n även undersöka hur många gånger siffran k förekommer i n.
+ Den skall alltså beräkna två resultat.
+ Du får själv hitta en lösning för hur detta skall gå till.
+ Det är inte heller i denna uppgift tillåtet att göra om heltalen till typen
+ String.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Några exempel: Om k=6 och n=2356 skall resultaten 0 och 1 ges.
+ Om k=6 och n=6350 skall resultaten 3 och 1 ges.
+ Om k=6 och n=6360 skall resultaten 1 och 2 ges.
+ Om k=6 och n=4350 skall resultaten -1 och 0 ges.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align right
+(5 p)
+\end_layout
+
+\begin_layout Quote
+En ekvation av formen Ax + By + Cz = D, där A, B, C och D kallas en diofantisk
+ ekvation.
+ (Diofantos var en grekisk matematiker som levde omkring 250 f.
+ Kr.) Ekvationen kan ha noll eller flera lösningar.
+ Vi är i denna uppgift bara intresserade av ekvationer i vilka A, B, C och
+ D är heltal som är större än noll och vi söker bara sådana lösningar där
+ x, y och z alla är större än eller lika med noll.
+ Därmed vet vi t.ex.
+ att x <= D/A.
+ Skriv ett program som läser in de fyra talen A, B, C och D och sedan skriver
+ ut alla lösningar enligt ovan och slutligen även en uppgift om antalet
+ lösningar.
+ Så här kan två körningar av programmet se ut:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Ange talen A, B, C och D: 2 4 6 7 0 lösningar!
+\begin_inset Newline newline
+\end_inset
+
+Ange talen A, B, C och D: 2 4 6 8 0 2 0 1 0 1 2 1 0 4 0 0 4 lösningar!
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align right
+(10 p)
+\end_layout
+
+\end_body
+\end_document

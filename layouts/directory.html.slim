@@ -8,15 +8,25 @@ html
       div data-role="content"
           ul data-role="listview"
             li data-role="divider" 
+              img src="/assets/img/icons/folder.png"
               h2 = @item[:title]
               p = breadcrumbs_trail.inject("") { |acc, el| el[:title] == "/" ? "" : acc + " / " + el[:title] }
             - @item.children.each do |child|
               - if child.binary?
                 li: a(href=child.path data-ajax="false")
+                  img.ui-li-icon src="/assets/img/icons/blank.png"
+                  - if child[:extension]
+                    .filetype style="position: absolute; left: 8px; top: 2em; font-size: 9px; font-weight: normal" = child[:extension]
                   h3
                   p: strong = child[:title]
               - else
                 li: a(href=child.path)
+                  - if child[:is_directory]
+                    img.ui-li-icon src="/assets/img/icons/folder.png"
+                  - else
+                    img.ui-li-icon src="/assets/img/icons/blank.png"
+                  - if child[:extension]
+                    .filetype style="position: absolute; left: 8px; top: 2em; font-size: 9px; font-weight: normal" = child[:extension]
                   h3
                   p: strong = child[:title]
                   - if child[:subtitle]

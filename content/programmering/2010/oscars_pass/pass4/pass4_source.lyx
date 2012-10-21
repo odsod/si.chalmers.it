@@ -1,0 +1,444 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass exam
+\use_default_options true
+\language swedish
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+SI-pass 4 OOP
+\end_layout
+
+\begin_layout Description
+Handledare: Oscar Söderlund
+\end_layout
+
+\begin_layout Description
+Mail: soscar@student.chalmers.se
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1em
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{questions}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Skriv ett program som demonstrerar att, oavsett hur många objekt man skapar
+ av en viss klass, så finns det bara en enda instans av en given statisk
+ instansvariabel i den klassen.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Gamle De Morgans lagar känner vi alla till:
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+neg(P
+\backslash
+vee Q)=
+\backslash
+neg P
+\backslash
+wedge
+\backslash
+neg Q$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+neg(P
+\backslash
+wedge Q)=
+\backslash
+neg P
+\backslash
+vee
+\backslash
+neg Q$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Generellt sett vill man skriva sina if-satser utan massa jobbiga negationer
+             (!-tecken), använd därför DeMorgans lagar för att förenkla
+ följande if-satser:
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{parts}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+part
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+if (!( x < 5 ) && !( y >= 7 )) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+part
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+if (!( a == b ) || !( g != 5 )) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+part
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+if (!( ( x <= 8 ) && ( y > 4 ) )) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+part
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+if (!( ( i > 4 ) || ( j <= 6 )  || !(a == b ) )) { }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{parts}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+Målet är att så få !-operatorer som möjligt skall finnas kvar.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+!= operatorn är naturligtvis en helt annan femma, den gillar vi.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Ett vampyrtal har ett jämnt antal siffror, och kan bildas av att dela in
+ talet i två sifferpar och multiplicera paren med varandra.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Ex:
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+1260 = 21 * 60
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+1827 = 21 * 87
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+2187 = 27 * 81
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Koda nu ett program som hittar och skriver ut alla fyrsiffriga vampyrtal!
+ :F
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{questions}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

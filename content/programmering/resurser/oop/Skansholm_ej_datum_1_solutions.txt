@@ -1,0 +1,197 @@
+// Lösningar till gammal tentamen
+
+// Uppgift 1
+
+class C {  
+ public static double abs(double x) {
+    if (x > 0)
+      return x;
+    else
+      return -x;
+  }
+
+  public static double sin(double x) {    
+    double term = x, 
+           sum  = 0;
+    int k = 1;
+    while (abs(term) >= 1.0e-5) {
+      sum += term;
+      k += 2;
+      term = -term*x*x/(k-1)/k;
+    }
+    return sum;
+  }
+}
+
+
+
+ // Uppgift 2
+
+ import java.io.*; 
+ import java.util.*;
+
+ public class PigLatin {
+   public static String toPig(String word) {
+     if (! Character.isLetter(word.charAt(0)))
+       return word;  // börjar inte med bokstav
+     String w = word.toLowerCase();
+     String vokaler = "aeiou";
+     String prefix  = "hlprt";
+     if (vokaler.indexOf(w.charAt(0)) != -1)  // börjar med vokal 
+       return w + "yay";
+     else // börjar med konsonant
+       if (prefix.indexOf(w.charAt(1)) != -1)  // prefix
+         return w.substring(2) + w.substring(0,2) + "ay";
+       else
+         return w.substring(1) + w.substring(0,1) + "ay";
+   } 
+
+   public static void main (String[] arg) {
+     Scanner r = null;
+     try {
+       r = new Scanner(new File(arg[0]));
+     }
+     catch (FileNotFoundException e1) {
+       System.out.println("Cannot open " + arg[0]);
+       System.exit(1);
+     }
+     PrintWriter w = null;
+     try {
+       w = new PrintWriter(new BufferedWriter(new FileWriter(arg[1])));
+     }
+     catch (IOException e2) {
+       System.out.println("Cannot create " + arg[1]);
+       System.exit(2);
+     }
+
+     while (r.hasNext()) {
+       String s = r.next();
+       char c = s.charAt(s.length()-1);
+       if (Character.isLetter(c))
+         w.print(toPig(s) + " ");
+       else
+         w.println(toPig(s.substring(0, s.length()-1)) + c);
+     }
+     w.close();
+   } 
+ } 
+
+
+// Uppgift 3
+
+class C {
+ public static int[] randArray(int max, int upprepa) {
+    int[] a = new int[max*upprepa];
+    for (int i=0; i<a.length; i++) {
+      // placera ett slumptal i element nr i
+      int tal=0, antal=upprepa;
+      while (antal==upprepa) {           // gör ett nytt försök     
+        tal=(int)(Math.random()*max)+1;  // prova med detta tal
+        // undersök hur många gånger talet finns tidigare
+        antal=0;
+        for (int j=0; j<i; j++)
+          if (a[j]==tal)
+            antal++;
+      }
+      a[i] = tal;  // det gick bra, spara talet i a[i]
+    }
+    return a;
+  }
+}
+
+
+// Uppgift 4
+
+ import javax.swing.border.*;
+
+ class MultiBorder extends CompoundBorder {
+   
+   public MultiBorder(Border[] b) {
+       for (int i=0; i<b.length; i++) {
+         outsideBorder = new CompoundBorder(outsideBorder, insideBorder);
+         insideBorder = b[i];
+       }  
+   }
+ }
+
+
+// Uppgift 5 a
+
+ import java.awt.*;
+ import java.awt.event.*;
+ import javax.swing.*;
+ import javax.swing.border.*;
+
+ public class LivePanel extends JPanel implements ActionListener {
+   private final int n;      // antal färger
+   private final MultiBorder[] mb;
+   private int nr;
+   private int direction = 1;
+
+   public LivePanel(Color[] col, int tjock) {
+     n = col.length;
+     LineBorder[] lb = new LineBorder[n];
+     for (int i=0; i < n; i++) {
+       lb[i] = new LineBorder(col[i], tjock/n);
+     }
+     mb = new MultiBorder[n];
+     for (int i=0; i<n; i++) {
+       mb[i] = new MultiBorder(lb);
+       // rotera elementen i lb ett steg
+       LineBorder tmp = lb[n-1]; 
+       for (int j=n-1; j > 0; j--)
+         lb[j] = lb[j-1];
+       lb[0] = tmp;
+     }
+     setBorder(mb[nr]);
+     Timer tim = new Timer(200,this);       
+     tim.start();        
+   }
+
+   public void moveIn(boolean in) {
+     if (in)
+       direction = 1;
+     else
+       direction = -1;
+   }
+     
+   public void actionPerformed(ActionEvent e) {
+     nr = (nr+direction) % n;
+     if (nr < 0)
+       nr += n;
+     setBorder(mb[nr]);
+   }
+ }
+
+
+// Uppgift 5 b
+
+ import java.awt.*;
+ import javax.swing.*;
+
+ public class Effekt extends JFrame {
+   final int n = 10;  // antal nyanser
+   final int t = 10;  // rambredd
+
+   public Effekt() {
+     Color[] c = new Color[n];
+     for (int i=0; i < n; i++) {
+       int k = 255 * (i+1) / n; 
+       c[i] = new Color(k, k, k);
+     }
+     LivePanel p = new LivePanel(c, n*t);
+     p.moveIn(false);
+     p.setLayout(new BorderLayout()); 
+     p.add(new JLabel("Java", JLabel.CENTER));
+     getContentPane().add(p); 
+     p.setPreferredSize(new java.awt.Dimension(2*n*t+50, 2*n*t+50));    
+     pack();
+     setVisible(true);       
+     setDefaultCloseOperation(EXIT_ON_CLOSE);      
+   }
+
+   public static void main (String[] arg) {
+     new Effekt();
+   }
+ }
+

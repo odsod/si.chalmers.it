@@ -1,0 +1,57 @@
+1) Vad blir ouputen när man kör följande loopar?
+
+       for(int i = 1; i <= 5; i++) {
+           System.out.println(i*i);
+       }        
+
+       for(int i = 1; i <= 10; i++) {
+           if(i%2 == 0) {
+               System.out.println(i);
+           }
+       }
+
+       for(int i = 1; i <= 3; i++) {
+           for(int j = 1; j <= 3; j++) {
+               System.out.println(i*j);
+           }
+       }
+
+       for(int i = 1; i <= 3; i++) {
+           for(int j = 1; j <= 3; j++) {
+               if((i*j)%2 == 0) {
+                   System.out.println(i*j);
+               }
+           }
+       }
+
+       for(int i = 1; i <= 3; i++) {
+           for(int j = 3; j >= 1; j--) {
+               System.out.println(i*j);
+           }
+       }
+
+       for(int i = 3; i >= 1; i--) {
+           for(int j = 3; j >= 1; j--) {
+               System.out.println(i*j);
+           }
+       }
+
+       for(int i = 1; i <= 5; i++) {
+           if(i%2 == 0) {
+               for(int j = 1; j <= 3; j++) {
+                   System.out.println(i*j);
+               }
+           }
+       }
+
+2) Skriv en metod som givet ett heltal n, skriver ut hur många siffror talet n innehåller.
+
+3) Fibonaccis talföljd: 0 1 1 2 3 5 8 13 ..
+
+fib(0) = 0
+fib(1) = 1
+fib(n) = fib(n-1)+fib(n-2)
+
+Skriv ett program som skriver ut de 10 första fibonacci-talen.
+
+4) Skriv en metod som givet ett heltal n skriver ut de n första fibonacci-talen.

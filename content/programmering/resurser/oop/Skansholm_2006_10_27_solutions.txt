@@ -1,0 +1,226 @@
+    // Lösningar till tentamen 2006-10-27
+       
+    // Uppgift 1
+    class OurString {
+         private char[] str;
+
+         public OurString(String s) {
+    	   str = new char[s.length()];
+           int i;
+    	   for (i=0; i < s.length(); i = i+1) 
+               str[i] = s.charAt(i);
+         }
+    
+         public void byt(int i, char c) {
+    	   if (i >=0 && i < str.length)
+    	     str[i] = c;
+           else
+             throw new IndexOutOfBoundsException();
+         }
+    
+         public int antal() { 
+           return str.length; 
+         }
+    
+         public void utökaMed(String s) {
+    	   char[] str2 = new char[str.length+s.length()];
+    	   for (int i = 0; i < str.length; i = i+1) 
+             str2[i] = str[i];
+    	   for (int i = 0; i < s.length(); i = i+1) 
+             str2[i+str.length] = s.charAt(i);
+    	   str = str2;
+         }
+
+         public String toString() {
+    	   String s = "";
+    	   for (int i=0; i < str.length; i = i+1) 
+             s = s + str[i];
+    	   return s;
+         }
+    }
+    
+    
+    // Uppgift 2
+    
+    public class Era {
+      public static void main(String[] arg) {
+        final int  max = 1001;
+        boolean[] a = new boolean[max];
+        a[0] = a[1] = false;
+        for (int k=2; k<max; k++)
+          a[k] = true;
+        for (int i=2; i<max; i++)
+          if (a[i])
+            for (int j=i+1; j<max; j++)
+              if (j % i == 0)
+                a[j] = false;
+        for (int l=0; l<max; l++)
+          if (a[l])
+            System.out.println(l);
+      }
+    }
+
+     // Uppgift 3
+
+     import java.io.*;
+     import java.util.*;
+
+     public class BMI {
+       public static void main(String[] arg) throws IOException {
+         Scanner sc = new Scanner(new File(arg[0]));
+         PrintWriter utström = new PrintWriter
+                              (new BufferedWriter
+                              (new FileWriter(arg[1])));                         
+         while(sc.hasNext()) {
+           String rad1 = sc.nextLine();
+           int ålder = sc.nextInt();
+           int längd = sc.nextInt();
+           double vikt = sc.nextDouble();
+           sc.nextLine();  // avsluta rad 2
+           double bmi = vikt / (0.01*längd*0.01*längd);
+           if (bmi > 30) {
+             utström.println(rad1);
+             utström.println(ålder + " " + längd + " " + vikt);
+           }
+         }
+         utström.close();
+       }
+     }
+
+    
+     // Uppgift 4
+
+     import java.text.*;
+    
+     public class Flight implements Comparable<Flight> {
+        ...
+    
+        public int compareTo(Flight f) {
+         int i = dep.compareTo(f.dep);
+         if (i != 0) 
+           return i;
+         else {
+           Collator c = Collator.getInstance();
+           c.setStrength(Collator.PRIMARY);
+           return c.compare(destination, f.destination);
+         }
+       }
+     } 
+    
+    
+    
+    // Uppgift 5 (a och b)
+    
+     import java.awt.*;
+     import javax.swing.*;
+    
+     public class Tarning extends JPanel {
+       private int värde;
+    
+       public Tarning() {
+         kasta();
+         initGrafik();  // i deluppgift b
+       }
+    
+       public Tarning(int v) {
+         sättVärde(v);
+         initGrafik();  // i deluppgift b
+       } 
+    
+       public int  avläsVärde() {
+         return värde;
+       }
+    
+       public void sättVärde(int v) {
+         if (v >= 1 && v <= 6)
+           värde = v;
+         else {
+           System.out.println("Felaktigt argument");
+           System.exit(1);
+         }
+         repaint();  // i delupggift b
+       }
+    
+       public void kasta() {
+         värde = (int) (Math.random() * 6) + 1;
+         repaint();  // i delupggift b
+       }
+    
+       // Tillägg för deluppgift b
+       Prick[] prick = new Prick[9];
+    
+       private void initGrafik() {
+         setLayout(new GridLayout(3,3));
+         for (int i=0; i <9; i++) {
+           prick[i] = new Prick();
+           add(prick[i]);
+           prick[i].setBackground(Color.black);
+         }
+      }
+           
+      public void paintComponent(Graphics g) {
+         super.paintComponent(g);
+         for (int i=0; i <9; i++) 
+           prick[i].setForeground(Color.black);    // alla svarta från början
+         if (värde % 2 == 1)  // udda nummer
+           prick[4].setForeground(Color.white); 
+         if (värde >= 2) {
+           prick[0].setForeground(Color.white);
+           prick[8].setForeground(Color.white);
+         }
+         if (värde >= 4) {
+           prick[2].setForeground(Color.white); 
+           prick[6].setForeground(Color.white);
+         }
+         if (värde == 6) {
+           prick[3].setForeground(Color.white);
+           prick[5].setForeground(Color.white);
+         }
+         for (int i=0; i <9; i++) 
+           prick[i].repaint();
+       }
+     }
+    
+    
+    // Uppgift 6
+    
+    import java.awt.*;
+    import java.awt.event.*;
+    import javax.swing.*;
+    
+    public class TarningTest extends JFrame implements ActionListener {
+    
+      Tarning t1 = new Tarning(),
+              t2 = new Tarning();
+      JButton  b = new JButton("Kasta");
+      JPanel p1 = new JPanel(),
+             p2 = new JPanel();
+      JLabel sum = new JLabel("Summa: " + (t1.avläsVärde()+t2.avläsVärde()));
+    
+      public TarningTest() {
+        add(p1, BorderLayout.CENTER);
+        add(p2, BorderLayout.SOUTH);
+        p1.setLayout(new GridLayout(1,2,2,0));
+        p2.setLayout(new FlowLayout());
+        p1.add(t1);
+        p1.add(t2);
+        p2.add(b);
+        p2.add(sum);
+        b.addActionListener(this);
+        setSize(200,150);
+        setDefaultCloseOperation(EXIT_ON_CLOSE); 
+        setVisible(true);
+      }
+    
+      public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == b) {
+          t1.kasta(); t2.kasta();
+          sum.setText("Summa: " + (t1.avläsVärde()+t2.avläsVärde()));
+        }
+      }
+    
+      public static void main(String[] arg) {
+        new TarningTest();
+      }
+    }
+    

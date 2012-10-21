@@ -1,0 +1,32 @@
+Pass 1: 
+
+	Givet en array med heltal av godtycklig storlek,
+	skriv en metod som sorterar talen i stigande ordning.
+
+Pass 2: 
+
+	Ett primtalspalindrom är ett positivt heltal som är 
+	ett primtal och ett palindrom. T.ex. 151.
+	Skriv en metod som avgör om ett heltal är ett primtalspalindrom.
+
+	(Taget från Erlands tenta i Programmeringsteknik för F)
+
+Pass 3:
+
+	TBA
+
+Pass 4:
+
+	TBA
+
+Pass 5:
+
+	TBA
+
+Pass 6:
+
+	TBA
+
+Pass 7:
+
+	TBA

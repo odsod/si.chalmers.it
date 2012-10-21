@@ -1,0 +1,280 @@
+     // Lösningar till tentamen 2010-01-11
+
+    // Uppgift 1a
+
+    Rätt alternativ är c eftersom instansvariabeln list har värdet null.
+
+    // Uppgift 1b
+
+    Eftersom listan innehåller tre referenser vilka alla pekar på samma objekt blir utskriften:
+    3
+    3
+    3
+
+    // Uppgift 1c
+
+    Varje gång man anropar en instansmetod måste anropet alltid vara kopplat till ett 
+    visst specifikt objekt (det aktuella objektet "this"). Eftersom en klassmetod inte 
+    är kopplad till något speciellt objekt, 
+    måste man ange objektets namn även när man gör ett anrop från samma klass.
+
+    // Uppgift 1d
+     I det första fallet skapas fältet och elementen nollställes.
+     I det andra fallet skapas ett fält av referenser till Point-objekt. 
+     Referenserna får värdet null, dvs pekar inte på något. Man måste
+     se till att punktobjekten skapas, t ex i en snurra
+     for (int i=0; i<b.length; i++)
+       b[i] = new Point();
+
+     // Uppgift 1e
+     Klassen Button är ingen subklass till Container och 
+     har därför inga egenskaper för att hantera barnkomponenter.
+
+
+    // Uppgift 2    
+    import java.util.*;    
+    public class Diofantos {
+    
+      public static void main(String[] arg) {
+        System.out.print("Ange talen A, B, C och D: ");
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int d = sc.nextInt();
+        int antal = 0;
+        for (int x=0; x<=d/a; x++)
+          for (int y=0; y<=d/b; y++)
+            for (int z=0; z<=d/c; z++)
+              if (a*x + b*y + c*z == d) {
+                antal++;
+                System.out.println(x + " " + y + " " + z);
+              }
+        System.out.println(antal + " lösningar!");
+      }
+    }
+
+
+    // Uppgift 3    
+
+    import java.awt.*;
+    import java.awt.event.*;
+    import javax.swing.*;
+    import java.util.*;
+    public class Bandit extends JFrame implements ActionListener {
+       JButton spela = new JButton("Spela"); 
+       JLabel  n1 = new JLabel("",JLabel.CENTER); 
+       JLabel  n2 = new JLabel("",JLabel.CENTER); 
+       JLabel  n3 = new JLabel("",JLabel.CENTER); 
+       JLabel info = new JLabel(" Ingen vinst ",JLabel.CENTER);
+
+       Bandit() {
+	 setTitle("En bandit");
+         Font font = new Font("Times", Font.PLAIN, 36);
+         spela.setFont(font); 
+         n1.setFont(font); n2.setFont(font); n3.setFont(font); 
+         info.setFont(font); 	 
+         setLayout(new GridLayout(3,1,3,3));
+         JPanel p = new JPanel();
+         add(spela); add(p); add(info); 
+         p.setLayout(new GridLayout(1,3,3,3));
+         p.add(n1); p.add(n2); p.add(n3); 
+	 spela.addActionListener(this);
+         pack();
+         setVisible(true);
+         setDefaultCloseOperation(EXIT_ON_CLOSE);
+       }
+
+       public void actionPerformed(ActionEvent e) {
+	 int t1 = (int)(Math.random() * 10); 
+         int t2 = (int)(Math.random() * 10); 
+         int t3 = (int)(Math.random() * 10);
+	 n1.setText(t1+""); 
+         n2.setText(t2+""); 
+         n3.setText(t3+"");
+	 if ((t1==t2) && (t1==t3)) 
+	   info.setText("Vinst 50 kr");
+         else 
+           info.setText("Ingen vinst");
+       }
+
+        public static void main(String[] s) {
+           Bandit r = new Bandit ();
+        }
+    }
+
+
+    // Uppgift 4
+
+     import java.io.*;
+     
+     public class Compress {
+       public static void main(String[] arg) throws IOException {
+         BufferedReader in = new BufferedReader(new FileReader(arg[0]));
+         String outname  = arg[0] + ".szip" ;
+         PrintWriter out = new PrintWriter (new BufferedWriter(new FileWriter(outname)));
+         int c, next, count;
+         c = in.read();
+         while (c != -1) {
+           count = 1 ;
+           next = in.read() ;
+           while (next==c && count < 255) {
+             count++;
+             next = in.read();
+           }
+           if (count <= 3  && c != '\u00A5') 
+             for (int i=0; i<count; i++)
+               out.write(c);
+           else {
+             out.write('\u00A5'); 
+             out.write(count);
+             out.write(c);
+           }
+           c = next ;
+         }
+         in.close();
+         out.close();
+       }
+     }
+
+
+    // Uppgift 5
+
+    public class MyStringBuilder {
+    
+      private char[] b;       // fältet med texten      
+      private int n = 0;      // längden
+    
+      public MyStringBuilder() {
+        b = new char[16];
+      }
+    
+      public MyStringBuilder(String s) {
+        n = s.length();
+        b = new char[n + 16];
+        for (int i=0; i<n; i++)
+          b[i] = s.charAt(i);
+      }
+    
+      public int length() {
+        return n;
+      }
+    
+      public int capacity() {
+        return b.length;
+      }
+    
+      public void ensureCapacity(int k) {
+        int cap = b.length;
+        // beräkna ny kapacitet
+        while (cap < k)
+          cap *= 2;
+        // skapa nytt fält om kapaciteten behövde utökas
+        if (b.length < k) {
+          char[] b2 = new char[cap];       // skapa nytt fält
+          for (int i=0; i<b.length; i++)   // kopiera tidigare text
+            b2[i] = b[i];   
+          b = b2;
+        }
+      }
+    
+      public void insert(int p, String s) {
+        int d = s.length();
+        if (p < 0 || p > n)
+          throw new IndexOutOfBoundsException();
+        ensureCapacity(n+d);
+        for (int i=n-1; i>=p; i--)    // förskjut tidigare text d steg åt höger
+          b[i+d] = b[i];
+        for (int i=0; i<d; i++)       // lägg in ny text
+          b[p+i] = s.charAt(i);
+        n += d;
+      }
+    
+      public void append(String s) {
+        insert(n, s);
+      }    
+        
+      public String substring(int p, int m) {
+        if (p < 0 || p > n || m < 0 || m > n || p > m)
+          throw new IndexOutOfBoundsException();
+        String s = "";
+        for (int i=p; i<m; i++)
+          s += b[i];
+        return s;
+      }   
+    
+      @Override
+      public String toString() {
+        return substring(0, n);
+      }
+    }  
+    
+    // Alternativ version som använder fler standardmetoder
+    class MyStringBuilder2 {
+    
+      private char[] b;       // fältet med texten      
+      private int n = 0;      // längden
+    
+      public MyStringBuilder2() {
+        b = new char[16];
+      }
+    
+      public MyStringBuilder2(String s) {
+        n = s.length();
+        b = new char[n + 16];
+        s.getChars(0, n, b, 0);   // kopiera från s till b
+      }
+    
+      public int length() {
+        return n;
+      }
+    
+      public int capacity() {
+        return b.length;
+      }
+    
+      public void ensureCapacity(int k) {
+        int cap = b.length;
+        // beräkna ny kapacitet
+        while (cap < k)
+          cap *= 2;
+        // skapa nytt fält om kapaciteten behövde utökas
+        if (b.length < k) {
+          char[] b2 = new char[cap];       // skapa nytt fält
+          System.arraycopy(b, 0, b2, 0, b.length);  // kopiera från b till b2   
+          b = b2;
+        }
+      }
+    
+      public void insert(int p, String s) {
+        int d = s.length();
+        if (p < 0 || p > n)
+          throw new IndexOutOfBoundsException();
+        ensureCapacity(n+d);
+        System.arraycopy(b, p, b, p+d, n-p); // förskjut tidigare text d steg åt höger
+        s.getChars(0, d, b, p);              // lägg in ny text
+        n += d;
+      }
+    
+      public void append(String s) {
+        insert(n, s);
+      }    
+        
+      public String substring(int p, int m) {
+        if (p < 0 || p > n || m < 0 || m > n || p > m)
+          throw new IndexOutOfBoundsException();
+        return new String(b, p, m-p);
+      }   
+    
+      @Override
+      public String toString() {
+        return new String(b, 0, n);
+      }
+    }  
+
+
+
+
+
+
+

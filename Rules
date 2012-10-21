@@ -21,11 +21,27 @@
 #route '/' do
   #nil
 #end
+
 preprocess do
+  def create_parents(item)
+    identifier = item.identifier.sub(/[^\/]+\/$/, '')
+    if !(@items.find { |i| i.identifier == identifier }) && !/assets/.match(item.identifier)
+      title = (identifier.split("/").last && identifier.split("/").last.capitalize.gsub("_", " ")) || "/"
+      parent = Item.new(" ", {:title => title}, identifier)
+      parent[:is_directory] = true
+      @items << parent
+      create_parents(parent)
+    end
+  end
+
+  @items.each do |i|
+    create_parents(i)
+  end
+
   @items.each do |i|
     if i.binary? 
       i[:title] = i.raw_filename.split("/").last
-    elsif i[:extension] == 'java'
+    elsif i[:extension] == 'java' || i[:extension] == 'txt'
       i[:title] = i[:filename].split("/").last
     end
     if i[:extension] == 'md'
@@ -36,19 +52,8 @@ preprocess do
       i[:title] = title
       i[:subtitle] = subtitle
     end
-
-    def create_parents(item)
-      identifier = item.identifier.sub(/[^\/]+\/$/, '')
-      if !(@items.find { |i| i.identifier == identifier }) && !/assets/.match(item.identifier)
-        title = (identifier.split("/").last && identifier.split("/").last.capitalize.gsub("_", " ")) || "/"
-        parent = Item.new(" ", {:title => title}, identifier)
-        @items << parent
-        create_parents(parent)
-      end
-    end
-
-    create_parents(i)
   end
+
 end
 
 compile '/assets/*' do
@@ -68,6 +73,8 @@ compile '*' do
     layout 'exercise'
   elsif item[:extension] == 'java'
     layout 'code'
+  elsif item[:extension] == 'txt'
+    layout 'text'
   elsif !item.binary?
     layout 'directory'
   end

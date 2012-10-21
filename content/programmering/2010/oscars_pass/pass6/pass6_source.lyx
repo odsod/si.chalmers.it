@@ -1,0 +1,334 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass exam
+\begin_preamble
+\usepackage{graphicx}
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+
+\lang swedish
+SI-pass 6 OOP
+\end_layout
+
+\begin_layout Description
+
+\lang swedish
+Handledare: Oscar Söderlund
+\end_layout
+
+\begin_layout Description
+\align block
+
+\lang swedish
+Mail: soscar@student.chalmers.se
+\end_layout
+
+\begin_layout Standard
+
+\lang swedish
+\begin_inset VSpace 1em
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang swedish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{questions}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Uppgiften är att skriva ett program som visar ett virtuellt tangentbord
+ på skärmen, dvs ett program som visar en massa knappar vilka fungerar som
+ ett vanligt tangentbord.
+ När du kör ditt program skall det se ut som i följande figur (den nedersta
+ långa knappen är mellanslag).
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Ovanför knapparna skall den inmatade texten visas.
+ När man trycker på en av knapparna läggs dess tecken till i slutet av texten.
+ Det går inte att sudda det som redan står i texten och det skall inte gå
+ att skriva eller förändra texten på något annat sätt än genom att trycka
+ på knapparna.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Det finns många knappar för att uppgiften inte skall gå att lösa med klipp-och-k
+listra-programmering.
+ Försök istället hitta en mer strukturerad lösning, som inte är beroende
+ av antalet knappar.
+ Lösningar som innehåller 
+\backslash
+textquotedblleft{}och så gör vi alla de andra knapparna på samma sätt
+\backslash
+textquotedblright{}, 
+\backslash
+textquotedblleft{}och så vidare
+\backslash
+textquotedblright{}, 
+\backslash
+textquotedblleft{}...
+\backslash
+textquotedblright{} eller liknande kommer inte att godkännas, utan du måste
+ skriva ut hela din lösning.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{flushright}
+\backslash
+texttt{(Skansholm 2007)}
+\backslash
+end{flushright}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.5]{O:/docs/si/pass/pass6/keyboard.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+question
+\end_layout
+
+\begin_layout Plain Layout
+
+Skriv ett program som låter oss spela det s k 15-spelet.
+ När programmet startas skall det komma upp ett fönster med knappar enligt
+ vänstra figuren.
+ Knappen längst ned till höger skall vara blank, medan övriga är försedda
+ med nummer enligt figuren.
+ Man skall sedan oupphörligt kunna trycka på knapparna.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Om man trycker på en knapp som har den blanka knappen som granne (dvs rakt
+ ovanför eller nedanför sig eller till vänster eller höger om sig), skall
+ texten på knapparna byta plats.
+ Om man t.ex.
+ trycker på knappen med texten 
+\backslash
+textquotedbl{}4
+\backslash
+textquotedbl{} i den vänstra figuren så skall fönstret ändras så att det
+ kommer att se ut som i den högra figuren.
+ Om man trycker på den blanka knappen eller på en knapp som inte har blank
+ granne skall programmet generera ett pipande ljud.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Tips: Låt varje ruta representeras av ett objekt av en egen klass Ruta,
+ vilken skall vara en subklass till JButton.
+ Om du låter varje ruta själv hålla reda på sin placering på spelplanen
+ (sin rad och sin kolumn) så blir lösningen enkel.
+ Om du dessutom hela tiden ser till att ha en referens till den tomma rutan
+ så blir det ännu enklare.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{flushright}
+\backslash
+texttt{(Skansholm 2008)}
+\backslash
+end{flushright}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.6]{O:/docs/si/pass/pass6/fifteen.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{questions}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
