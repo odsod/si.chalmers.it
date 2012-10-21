@@ -1,44 +1,47 @@
-h1 {
-  display: none;
+.exercise h1 {
+  color: #5a5a5a;
+  text-align: center;
 }
 
 /*Exercise counter: h2*/
 
-body {
+.exercise {
   counter-reset: exercise;
 }
 
-h2:before {
+.exercise h2:before {
   content: "Uppgift " counter(exercise) ": ";
   counter-increment: exercise;
 }
 
-h2.page-header {
-  color: #5A5A5A;
-}
-
 /*Part counter: h3*/
 
-h2 {
+.exercise h2 {
+  color: #5a5a5a;
+  margin-top: 1em;
+  padding-bottom: 10px;
   counter-reset: part;
+  border-bottom: 1px solid #e1e1e8;
 }
 
-h3:before {
+.exercise h3:before {
   content: counter(part, lower-alpha) ") ";
   counter-increment: part;
 }
 
-h3 {
+.exercise h3 {
+  color: #5a5a5a;
   font-size: 12px;
   line-height: 18px;
   margin-top: 20px;
   display: block;
 }
 
-code {
+.exercise code {
   padding: 1px 3px !important;
+  color: #1e347b;
 }
 
-pre.prettyprint {
+.exercise pre.prettyprint {
   margin-bottom: 10px;
 }

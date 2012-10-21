@@ -1,0 +1,6 @@
+div data-role="header" data-theme="d"
+  a href="/" data-icon="home" data-iconpos="right"
+    | si.chalmers.it
+  h1
+  - if @item.parent
+    a href="../" data-icon="arrow-u" data-iconpos="left" =  @item.parent[:title]

@@ -3,7 +3,9 @@ html
   head
     == render 'head'
   body
-    div.exercise.code data-role="page"
+    div.code data-role="page"
       == render "header"
       div data-role="content"
-        == yield
+        pre.prettyprint
+          code
+            == yield

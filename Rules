@@ -13,26 +13,41 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-route '/2012/op/erfarna/pass6/' do
-  '/index.html'
-end
+#route '/2012/op/erfarna/pass6/' do
+  #'/index.html'
+#end
+#
 
+#route '/' do
+  #nil
+#end
 preprocess do
-  # Parse titles from first line of markdown files
-  #@items.select { |i| i[:extension] == 'md' }.each do |i|
-  #i[:title] = i.raw_content.split("\n").first
-  #end
   @items.each do |i|
-    if i[:extension] == 'pdf'
-      new = (Nanoc::Item.new '', {}, i.identifier + '_html')
-      new[:make_html] = true
-      @items << new
+    if i.binary? 
+      i[:title] = i.raw_filename.split("/").last
+    elsif i[:extension] == 'java'
+      i[:title] = i[:filename].split("/").last
     end
     if i[:extension] == 'md'
-      i[:title] = i.raw_content.split("\n").first
-    else
-      i[:title] = "hej"
+      title = i.raw_content.split("\n").first
+      subtitle = title.split(":")[1]
+      subtitle = subtitle.strip if subtitle
+      title = title.split(":").first.strip
+      i[:title] = title
+      i[:subtitle] = subtitle
     end
+
+    def create_parents(item)
+      identifier = item.identifier.sub(/[^\/]+\/$/, '')
+      if !(@items.find { |i| i.identifier == identifier }) && !/assets/.match(item.identifier)
+        title = (identifier.split("/").last && identifier.split("/").last.capitalize.gsub("_", " ")) || "/"
+        parent = Item.new(" ", {:title => title}, identifier)
+        @items << parent
+        create_parents(parent)
+      end
+    end
+
+    create_parents(i)
   end
 end
 
@@ -44,46 +59,30 @@ route '/assets/*' do
   item.identifier.chop + '.' + item[:extension]
 end
 
-# Sheet items
-# /year/subject/index/sheet/item/
-compile '/*/*/*/*/*/' do
-
-end
-
 # Sheets
 # /year/subject/index/sheet/
-compile '/*/*/*/*/' do
-  unless item.binary?
-    filter :prettyprintinline
-    filter :bootstrapify
+compile '*' do
+  if item[:extension] == 'md'
     filter :maruku
     filter :prettyprint
     layout 'exercise'
+  elsif item[:extension] == 'java'
+    layout 'code'
+  elsif !item.binary?
+    layout 'directory'
   end
 end
 
-# Index pages
-# /year/subject/index/
-compile '/*/*/*/' do
-  layout 'directory'
-end
-
 # Directory pages
-compile '*' do
-  layout 'directory'
-end
+#compile '*' do
+  #layout 'directory'
+#end
 
-
-route '/' do
-  nil
-end
 
 route '*' do
   if item.binary?
-    # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
-    # Write item with identifier /foo/ to /foo/index.html
     item.identifier + 'index.html'
   end
 end

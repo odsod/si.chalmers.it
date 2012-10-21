@@ -66,8 +66,9 @@ Det skall finnas:
 + En metod för att kolla om en punkt befinner sig inne i cirkeln
 + En metod för att kolla cirkeln skär (överlappar) en annan cirkel
 
-Lyckliga tal ''Tenta: 2007-12-17, Erland''
-------------------------------------------
+Lyckliga tal
+------------
+*Tenta: 2007-12-17, Erland*
 
 Ett positivt heltal `N` kallas lyckligt (happy) om följande förfarande leder till talet `1` :
 

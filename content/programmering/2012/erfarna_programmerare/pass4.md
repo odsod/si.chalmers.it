@@ -93,8 +93,9 @@ För stora värden på `n` och `k` kommer anroppet `nCk = (n-1)C(k-1) + (n-1)Ck`
 
 Finns det något sätt att undvika detta?
 
-Liknande labben? ''Tentauppgift: 2006-12-19, Erland, 14p/40p''
---------------------------------------------------------------
+Liknande labben?
+----------------
+*Tentauppgift: 2006-12-19, Erland, 14p/40p*
 
 En klass med följande gränssnitt finns tillgänglig.
 
@@ -122,18 +123,16 @@ I denna uppgift kan du förutsätta en klass `DigitImplementation` som implement
     public class DigitImplementation extends Digit {
         /* ... */
     }
-{:.prettyprint}
 
 Du skall nu skriva en klass, `DigitalCounter`, som ser ut som figuren till vänster nedan och som använder sig av den färdiga klassen `DigitImplementation`.
 
-![Hela programmet](/2012/op/erfarna/pass4/tentadigit2.png) ![Ensam siffra](/2012/op/erfarna/pass4/tentadigit.png) 
+![Hela programmet](tentadigit2.png) ![Ensam siffra](tentadigit.png) 
 
 Klassen skall, förutom konstruktor och `actionPerformed`, innehålla följande metod:
 
     // outputs a number in the range 0..99.
     // when nbr<0 outputs 99, when nbr>99 outputs 0
     public void outputNumber(int nbr);
-{:.prettyprint}
 
 När man klickar på *"down"* skall talet som visas minskas med ett och när man klickar på *“up”* ökas med ett, bägge med *“wraparound”* dvs `up(99)` blir `0` osv. Knappen *“zero”* nollställer räknaren och *“exit”* avslutar programmet.
 
@@ -142,7 +141,7 @@ En miniräknare ''Tentauppgift: 2008-12-16, Erland, 21p/60p''
 
 Skriv ett program som fungerar som en enkel kalkylator enligt figuren nedan:
 
-![Miniräknare](/2012/op/erfarna/pass4/tentacounter.png)
+![Miniräknare](tentacounter.png)
 
 När man skriver in tal i de 2 första textfälten och klickar på *"Add"*, *"Subtract"*, *"Multiply"* eller *"Divide"* så utförs motsvarande operation och resultatet skrivs i *"Result"*-fältet. 
 
@@ -151,7 +150,6 @@ Om man inte skriver in något tal eller ett felaktigt tal i *"Number 1"* eller *
 Programmet skall ha en metod enligt:
 
     public void calculate(char operator) 
-{:.prettyprint}
     
 ...som läser talen från textfälten, kastar ev. en exception (men du fångar den där du anropar `calculate`), utför operationen `operator` och skriver resultatet.
 

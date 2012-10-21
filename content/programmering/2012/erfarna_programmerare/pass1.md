@@ -8,36 +8,35 @@ Vad blir outputen av följande program?
 
     public class ForLoopar {
 
-        for (int i = 1; i <= 5; i++) {
-            System.out.println(i * i);
-        }  
+      for (int i = 1; i <= 5; i++) {
+        System.out.println(i * i);
+      }  
 
-        for (int i = 1; i <= 10; i++) {
-            if(i % 2 == 0) {
-                System.out.println(i);
-            }
+      for (int i = 1; i <= 10; i++) {
+        if(i % 2 == 0) {
+          System.out.println(i);
         }
+      }
 
-        for (int i = 1; i <= 3; i++) {
-            for(int j = 3; j >= 1; j--) {
-                System.out.println(i * j);
-            }
+      for (int i = 1; i <= 3; i++) {
+        for(int j = 3; j >= 1; j--) {
+          System.out.println(i * j);
         }
+      }
 
-        for (int i = 3; i >= 1; i--) {
-            for(int j = 3; j >= 1; j--) {
-                System.out.println(i * j);
-            }
+      for (int i = 3; i >= 1; i--) {
+        for(int j = 3; j >= 1; j--) {
+          System.out.println(i * j);
         }
+      }
 
-        for (int i = 1; i <= 5; i++) {
-            if(i%2 == 0) {
-                for(int j = 1; j <= 3; j++) {
-                    System.out.println(i * j);
-                }
-            }
+      for (int i = 1; i <= 5; i++) {
+        if(i%2 == 0) {
+          for(int j = 1; j <= 3; j++) {
+            System.out.println(i * j);
+          }
         }
-
+      }
     }
 
 Klurigare loopar
@@ -85,8 +84,9 @@ Matematisk definition:
 
 Skriv ett program som skriver ut de 10 första fibonacci-talen.
 
-Diofantiska ekvationer ''Tentauppgift''
----------------------------------------
+Diofantiska ekvationer
+----------------------
+*Tentauppgift*
 
 En ekvation på formen `Ax + By + Cz = D`, där `A`, `B`, `C` och `D` är heltal kallas för en diofantisk ekvation.
 

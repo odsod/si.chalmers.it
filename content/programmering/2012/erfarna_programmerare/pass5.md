@@ -16,26 +16,26 @@ Vad är skillnaden mellan:
 Vilka av följande metoder går att kompilera?
 
     private void printALine1(String filename) {
-        try {
-            Scanner sc = new Scanner(new File(filename));
-            System.out.println(sc.nextLine());
-        } catch (IOException e) {
-            System.out.println("Oops.");
-        }
+      try {
+        Scanner sc = new Scanner(new File(filename));
+        System.out.println(sc.nextLine());
+      } catch (IOException e) {
+        System.out.println("Oops.");
+      }
     }
 
     private void printALine2(String filename) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File(filename));
-        System.out.println(sc.nextLine());
+      Scanner sc = new Scanner(new File(filename));
+      System.out.println(sc.nextLine());
     }
 
     private void printALine3(String filename) {
-        try {
-            Scanner sc = new Scanner(new File(filename));
-            System.out.println(sc.nextLine());
-        } catch (Exception e) {
-            throw new UnsupportedOperationException();
-        }
+      try {
+        Scanner sc = new Scanner(new File(filename));
+        System.out.println(sc.nextLine());
+      } catch (Exception e) {
+        throw new UnsupportedOperationException();
+      }
     }
 
 ### stackoverflow.com
@@ -50,11 +50,13 @@ En användare på stackoverflow ställer följande fråga:
 
 Vad svarar ni?
 
-Rita en ram ''Tentauppgift: 2007-12-18, Erland, 8p/60p''
+Rita en ram
 -----------
+*Tentauppgift: 2007-12-18, Erland, 8p/60p*
+
 Skriv ett program som ritar figuren nedan. 
 
-![Ram](/2012/op/erfarna/pass5/ram.png)
+![Ram](ram.png)
 
 När man drar i förstora-rutan så skall de två rektanglarna ändra storlek.
 
@@ -62,8 +64,9 @@ Rita i en panel (dvs en klass för detta) och skriv ett huvudprogram som inte f�
 
 Föredragen startstorlek skall vara `340x340`.
 
-Koda en boll ''Tentauppgift: 2006-12-22, Erland, 8p/60p''
-----------------------------------------------------------
+Koda en boll 
+------------
+*Tentauppgift: 2006-12-22, Erland, 8p/60p*
 
 Du skall skriva en klass `BallShape` som implementerar interfacet `Shape` och som är en boll med röd färg. 
 
@@ -86,12 +89,13 @@ Det räcker om du implementerar interfacet, konstruktorn och getter/setter för 
         public void draw(Graphics g);
     }
 
-Rita en boll ''Tentauppgift: 2006-12-22, Erland, 10p/60p''
-----------------------------------------------------------
+Rita en boll
+------------
+*Tentauppgift: 2006-12-22, Erland, 10p/60p*
 
 Antag nu att du skall åstadkomma figuren nedan. 
 
-![Boll](/2012/op/erfarna/pass5/ball.png)
+![Boll](ball.png)
 
 Den röda bollen från förra uppgiften ligger i en `JPanel` (`BallPanel` se nästa uppgift, antag att `BallPanel` finns i denna uppgiften) och nedanför den ligger en `JLabel` och en `JSlider`. 
 
@@ -103,8 +107,9 @@ En slider fungerar ungefär som en knapp men använder en `ChangeListener` istä
 
 Den här klassen innehåller också en main metod som du också skriver. Döp klassen till `BallFrame`.
 
-Gör en panel ''Tentauppgift: 2006-12-22, Erland, 12p/60p''
-----------------------------------------------------------
+Gör en panel
+------------
+*Tentauppgift: 2006-12-22, Erland, 12p/60p*
 
 Nu är det dags för panelen i vilken bollen ritas upp (`BallPanel`). 
 
