@@ -136,8 +136,9 @@ Klassen skall, förutom konstruktor och `actionPerformed`, innehålla följande 
 
 När man klickar på *"down"* skall talet som visas minskas med ett och när man klickar på *“up”* ökas med ett, bägge med *“wraparound”* dvs `up(99)` blir `0` osv. Knappen *“zero”* nollställer räknaren och *“exit”* avslutar programmet.
 
-En miniräknare ''Tentauppgift: 2008-12-16, Erland, 21p/60p''
-------------------------------------------------------------
+En miniräknare
+--------------
+*Tentauppgift: 2008-12-16, Erland, 21p/60p*
 
 Skriv ett program som fungerar som en enkel kalkylator enligt figuren nedan:
 

@@ -27,6 +27,7 @@ preprocess do
     identifier = item.identifier.sub(/[^\/]+\/$/, '')
     if !(@items.find { |i| i.identifier == identifier }) && !/assets/.match(item.identifier)
       title = (identifier.split("/").last && identifier.split("/").last.capitalize.gsub("_", " ")) || "/"
+      title = 'si.chalmers.it' if title == '/'
       parent = Item.new(" ", {:title => title}, identifier)
       parent[:is_directory] = true
       @items << parent
@@ -66,6 +67,7 @@ end
 
 # Sheets
 # /year/subject/index/sheet/
+
 compile '*' do
   if item[:extension] == 'md'
     filter :maruku
