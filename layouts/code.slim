@@ -4,5 +4,8 @@ html
     == render 'head'
   body
     div.code data-role="page"
+      == render "header"
       div data-role="content"
-        == yield
+        h1 = @item[:title]
+        pre: code
+          == yield

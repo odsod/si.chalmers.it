@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    == render 'head'
+  body
+    div.code data-role="page"
+      == render 'header'
+      div.exercise data-role="content"
+        == yield

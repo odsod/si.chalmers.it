@@ -1,5 +1,6 @@
 .exercise h1 {
   color: #5a5a5a;
+  display: none;
 }
 
 .exercise ul li h1 {
@@ -23,7 +24,7 @@
   margin: -15px;
   padding-left: 15px;
   color: #5a5a5a;
-  margin-top: 1em;
+  margin-top: 15px;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 1em;
