@@ -1,0 +1,115 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass{exam}
+
+\usepackage[T1]{fontenc}
+\usepackage[swedish]{babel}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+
+\fancyhead[LH]{\textit{Pass 2: Relationer}}
+\fancyhead[CH]{\bfseries \Large SI: Diskret Matematik}
+\fancyhead[RH]{\textit{Oscar \& Jennifer}}
+\fancyfoot[LF]{\textit{si@chalmers.it}}
+\fancyfoot[RF]{\textit{http://nollk.it/si}}
+
+
+\begin{document}
+\pagestyle{fancy}
+
+\begin{questions}
+
+\question{\bfseries Lite repetition}
+
+Bevisa följande lagar i satslogik:
+
+\begin{parts}
+
+\part
+$A \rightarrow B \Leftrightarrow \neg A \vee B$
+ 
+\part
+$A \rightarrow B \Leftrightarrow \neg B \rightarrow \neg A$
+
+\end{parts}
+
+\question{\bfseries Lite uppvärmning}
+
+Följande relation är definerad på mängden $\{a, b, c, d, e\}$:
+$$R = \{
+(a,a),(b,b),(c,c),(d,d),(e,e),(a,b),(b,a),(a,c),(c,a),(b,c),(c,b),(d,e),(e,d)
+\}$$
+
+\begin{parts}
+
+\part
+Är relationen reflexiv?
+
+\part
+Är relationen symmetrisk?
+
+\part
+Är relationen antisymmetrisk?
+
+\part
+Är relationen transitiv?
+
+\part
+Är relationen en ekvivalensrelation? Varför? 
+
+Om så är fallet, vilka är
+ekvivalensklasserna?
+
+\part
+Är relationen en partiell ordning? Varför? 
+
+Om så är fallet, vilka element är
+minimala/maximala?
+\end{parts}
+
+\question{\bfseries Lite klurigare?}
+
+Låt $A = \{ 1,2,3,4,5 \}$ och låt $R = \{ (1,4),(2,3) \}$ vara en relation på A.
+
+\begin{parts}
+
+\part
+Ange den minsta partiella ordningen $P$ på $A$ som innehåller $R$.
+
+\part
+Ange den minsta ekvivalensrelationen $E$ på $A$ som innehåller $R$.
+
+\end{parts}
+
+\question{\bfseries Lite ekvivalensrelationer}
+
+Låt $A = {1, 2, 3, 4}$ och låt $R$ vara en delmängd till $A \times A$ sådan att
+$(1, 2) \in R$. 
+
+Vilka övriga element i $A \times A$ måste $R$ innehålla för att vara en
+ekvivalensrelation?
+
+\question{\bfseries Lite partiella ordningar}
+
+Låt $S$ vara mängden av alla Chalmers studenter år 2011. 
+
+Låt $A$ vara potensmängden av $S$.
+
+\begin{parts}
+
+\part
+Visa att $(A,\subseteq)$ är en partiell ordning.
+
+\part
+Är det en total ordning?
+
+\part
+Vilka element är minimala, respektive maximala?
+
+\part
+Finns det något minst eller störst element?
+
+\end{parts}
+
+\end{questions}
+\end{document}

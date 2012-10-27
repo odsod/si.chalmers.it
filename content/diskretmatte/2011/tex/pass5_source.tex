@@ -1,0 +1,74 @@
+\documentclass{exam}
+
+\usepackage[T1]{fontenc}
+\usepackage[swedish]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\fancyhead[LH]{\textit{Pass 5: Mer om induktion}}
+\fancyhead[CH]{\bfseries \Large SI: Diskret Matematik}
+\fancyhead[RH]{\textit{Oscar \& Gustav}}
+\fancyfoot[LF]{\textit{Maila oss med uppgifter ni vill se på
+passen:\\ \bfseries si@chalmers.it}}
+\fancyfoot[RF]{\textit{Hitta de gamla passen med lite
+svar:\\ \bfseries http://nollk.it/si}}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+\begin{document}
+\pagestyle{fancy}
+\begin{questions}
+
+\question {\bfseries Lite klurig repetition}
+
+Ange största, minsta, minimala och maximala element i följande partiella
+ordningar:
+
+\begin{parts}
+\part $\displaystyle A = \left\{ \{\}, \{1\}, \{2\}, \{1,2\} \right\}$
+
+$R = (A, \subseteq)$
+
+\part $\displaystyle A = \left\{ \{\}, \{1\}, \{2\}\right\}$
+
+$R = (A, \supseteq)$
+
+\part $R = (\mathbb{N}, \leq)$
+
+\part $R = (\mathbb{N}, \geq)$
+\end{parts}
+\question {\bfseries Lite induktion}
+
+Bevisa att följande egenskaper gäller för $\mathbb{N}$:
+
+\begin{parts}
+\part
+$\displaystyle \sum_{i=0}^{n}n^3 = \left(\frac{n(n+1)}{2}\right)^2$
+
+\part
+$\displaystyle \sum_{k=0}^{n}k \cdot 2^{k-1} = (n-1) \cdot 2^n + 1$
+\end{parts}
+
+Tips: Använd induktion!
+
+\question {\bfseries Lite brainfuck}
+
+En schackbräde består av $8 \times 8$ rutor. Hur många kvadrater finns det på
+brädet? 
+
+Kvadrater har lika många rutor på bredden som på höjden: $1 \times 1, 2 \times
+2, 3 \times 3$ etc.
+
+Svara först med en summa och beräkna sedan det exakta antalet.
+
+\question {\bfseries Lite brainfuck!}
+
+Ett generellt rutigt bräde består av $n \times m$ rutor. Hur många rektanglar
+finns det på ett sådant bräde? 
+
+Svara först med hjälp av summatecken och sedan utan.
+
+\end{questions}
+
+\end{document}

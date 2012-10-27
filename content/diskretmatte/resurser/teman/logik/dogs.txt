@@ -1,0 +1,15 @@
+Antag att vårt universum är mängden av alla djur.
+
+Givet följande predikat:
+
+D(x) : x är ett däggdjur
+H(x) : x är en hund
+A(x) : x är en anka
+T(x,y) : x är tyngre än y
+
+Formulera följande påståendn med hjälp av predikat och kvantorer:
+
+1. Alla hundar är däggdjur
+2. Inga hundar är ankor
+3. Det finns ett däggdjur som är tyngre än alla hundar
+4. Det finns en anka som är lättare än alla hundar

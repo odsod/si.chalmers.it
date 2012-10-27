@@ -1,0 +1,134 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass{exam}
+
+\usepackage[T1]{fontenc}
+\usepackage[swedish]{babel}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+
+\fancyhead[LH]{\textit{Pass 3: Mer om relationer}}
+\fancyhead[CH]{\bfseries \Large SI: Diskret Matematik}
+\fancyhead[RH]{\textit{Oscar \& Gustav}}
+\fancyfoot[LF]{\textit{si@chalmers.it}}
+\fancyfoot[RF]{\textit{http://nollk.it/si}}
+
+
+\begin{document}
+\pagestyle{fancy}
+
+\begin{questions}
+
+\question{\bfseries Lite repetition}
+
+Givet mängden av alla smurfar, betrakta följande predikat:
+
+$$P(x):\textrm{x gillar smurfbär}$$
+$$Q(x):\textrm{x spelar trumpet}$$
+
+Beskriv innebörden av följande logiska utsagor med ord:
+
+\begin{parts}
+\part
+$\forall x : (P(x) \rightarrow \neg Q(x))$
+
+\part
+$\neg \forall x : (P(x) \rightarrow Q(x))$
+
+\part
+$\neg \exists x : (P(x) \wedge Q(x))$
+
+\part
+$\forall x : (P(x) \wedge Q(x))$
+
+\part
+$\exists x : (P(x) \wedge Q(x))$
+
+\part
+$\exists x : (P(x) \rightarrow Q(x))$
+\end{parts}
+Exempel: $\forall x : (P(x) \rightarrow Q(x))$
+
+{\itshape Alla smurfar som gillar smurfbär spelar trumpet.}
+
+\question{\bfseries Lite påståenden}
+
+Avgör om följande 8 utsagor är sanna eller falska, inklusive motivering! 
+
+Universum är R, mängden av alla reella tal. 
+\begin{parts}
+\part $\forall x, \forall y : (x > 0 \wedge y > 0) \Rightarrow (y > x \vee y =
+x)$
+\part $\forall x, \forall y : (x > 0 \wedge y > 0) \Rightarrow (xy > 0) $
+\part $\forall x, \forall y : (x > 0 \wedge y > x) \Rightarrow (xy \geq x)$
+\part $\forall x, \forall y : (x > 0 \wedge y > 0) \Rightarrow (\exists z : xy >
+z \wedge z > 0) $
+\part $\forall x, \exists y : (xy > x)$
+\part $\exists x, \forall y : (xy > x)$
+\part $\forall x, \forall y : (x > 0 \wedge y < 0) \Rightarrow (\exists z : xz =
+y) $
+\part $\forall x, \exists z : (x > 0) \Rightarrow (\forall y : xz = y)$
+\end{parts}
+\question{\bfseries Lite mängdlära}
+
+Givet följande mängder: 
+$$A=\{1,2\}$$
+$$B=\{2,3,4\}$$
+
+\begin{parts}
+\part Ange innehållet i följande mängder: 
+
+$A \times A$\\
+$B \times B$\\
+$A \times B$\\
+$B \times A$
+
+\part En relation R från mängden X till mängden Y är en
+delmängd till $X \times Y$. $(R \subseteq X \times Y)$
+
+Ange mängden R, där xRy om x = y på följande mängder:
+
+A till A\\
+B till B\\
+A till B\\
+B till A
+\end{parts}
+
+\question{\bfseries Lite klurighet }
+
+Givet följande mängd: 
+$$A = \{a,b,c,d\}$$
+
+\begin{parts}
+\part
+Hitta och definera en relation $R$ på $A$ som är både en ekvivalensrelation och
+en partiell ordning.
+
+\part
+Finns det fler unika sådana relationer? Varför?
+
+\part
+Vilka är ekvivalensklasserna?
+\end{parts}
+
+\question{\bfseries Lite klurigare klurighet }
+
+Låt M vara mängden av alla de 10 siffrorna 0 till 9.
+
+Sätt A till delmängden av potensmängden av M som innehåller de mängder som
+innehåller siffran 3 och som högst innehåller 4 siffror.
+
+Till exempel så innehåller A mängderna $\{ 1,3,7,8 \}$ och $\{ 3,5 \}$, men inte
+$\{ 1,3,7,8,9 \}$ och $\{ 5,6 \}$.
+
+Betrakta relationen ``delmängd till'' på A.
+
+\begin{parts}
+\part Är det en partiell ordning? Varför?
+\part Är det en total ordning? Varför?
+\part Ange alla minimala respektive maximala element.
+\part Ange alla största respektive minsta element.
+\end{parts}
+
+\end{questions}
+\end{document}

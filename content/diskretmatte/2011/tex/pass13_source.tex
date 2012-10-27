@@ -1,0 +1,95 @@
+\documentclass{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\fancyhead[LH]{\textit{Pass 13}}
+\fancyhead[CH]{\bfseries \Large SI: Diskret Matematik}
+\fancyhead[RH]{\textit{Oscar \& Gustav}}
+\fancyfoot[LF]{\textit{Maila oss med uppgifter ni vill se på
+passen:\\ \bfseries si@chalmers.it}}
+\fancyfoot[RF]{\textit{Hitta de gamla passen:\\ \bfseries si.chalmers.it}}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+\begin{document}
+\pagestyle{fancy}
+\begin{questions}
+
+\question{\bfseries Tentauppgift: Lite funktioner}
+\begin{parts}
+\part Hur många funktioner finns från $\mathbb{Z}_{6}$ till$\mathbb{Z}_{12}$?
+\part Hur många av dessa funktioner är injektiva, surjektiva,
+respektive bijektiva?
+\end{parts}
+
+\question{\bfseries Tentauppgift: Lite träd}
+\begin{parts}
+\part Hur många kanter har ett träd med n noder? 
+
+Visa med induktion!
+
+\part Hur många noder finns det på lägsta nivån i ett komplett binärträd med n nivåer? 
+
+Visa med induktion!
+
+\part Hur många noder finns i ett komplett binärträd med
+n nivåer? 
+
+Visa med induktion!
+
+\end{parts}
+\question{\bfseries Tentauppgift: Lite Fibonacci}
+
+Fibonacciföljden är definerad av: 
+
+$F(1) = 1$
+
+$F(2) = 1$ 
+
+$F(n) = F(n-1) + F(n-2)$ för $n \geq 3$. 
+
+\begin{parts}
+\part Visa att två efterföljande Fibonaccital är relativt prima.
+\part Vilka Fibonaccital är jämna? Vilka är delbara med 3? Vilka är delbara med 5?
+\end{parts}
+
+\question{\bfseries Tentauppgift: Lite Eulercykler}
+
+\begin{parts}
+\part Kan du rita den fullständiga grafen med 5 noder $K_{5}$ utan att lyfta
+pennan och utan att gå på samma kant flera gånger? Förklara hur ni gör eller varför det
+inte går.
+
+\part För vilka naturliga tal n har grafen $K_{n}$ en Eulercykel?
+
+\part Om en fullständig graf inte har någon Eulercykel, kan man ta bort några
+kanter och få en graf med en Eulercykel? Hur många kanter isåfall? 
+\end{parts}
+
+\question{\bfseries Tentauppgift: Lite summor}
+\begin{parts}
+\part Beräkna följande summor:
+
+$1^3 + 2^3$ (mod $3$)
+
+$1^3 + 2^3 + 3^3 + 4^3$ (mod $5$)
+
+$1^3 + 2^3 + 3^3 + 4^3 + 5^3 + 6^3$ (mod $7$)
+
+\part Vad kan man säga om: 
+
+$1^3 + 2^3 + \ldots + 100^3$ (mod $101$)?
+
+\part Ställ upp en förmodan angående summan:
+
+$1^3 + 2^3 + \ldots + (n-1)^3$ (mod $n$)
+
+\part Bevisa er förmodan!
+
+\end{parts}
+\end{questions}
+\end{document}

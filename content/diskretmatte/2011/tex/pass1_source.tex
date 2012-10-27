@@ -1,0 +1,94 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass{exam}
+
+\usepackage[T1]{fontenc}
+\usepackage[swedish]{babel}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+
+\fancyhead[LH]{\textit{Pass 1: Logik}}
+\fancyhead[CH]{\bfseries \Large SI: Diskret Matematik}
+\fancyhead[RH]{\textit{Oscar \& Gustav}}
+\fancyfoot[LF]{\textit{si@chalmers.it}}
+\fancyfoot[RF]{\textit{http://nollk.it/si}}
+\renewcommand{\headrulewidth}{0pt}
+
+\begin{document}
+\pagestyle{fancy}
+
+\begin{questions}
+
+\question{\bfseries Lite predikatlogik och kvantorer}
+
+Betrakta mängden av alla paket som ligger under julgranen. 
+
+\begin{parts}
+
+\part
+Skriv följande utsagor på symbolisk logisk form och illustrera dem med hjälp av
+Venndiagram.
+
+\begin{itemize}
+  \item Minst ett gult paket är till mig
+  \item Alla gula paket är tomma
+  \item Inget stort paket är tomt
+\end{itemize}
+
+\part
+Vad kan du dra för ytterligare slutsatser med hjälp av ovanstående utsagor?
+\end{parts}
+
+\question{\bfseries Lite tautologier}
+
+Vilka av följande logiska formler är tautologier?
+
+\begin{parts}
+\part $(P \rightarrow Q) \vee (Q \rightarrow P)$
+\part $(P \wedge (P \rightarrow Q)) \rightarrow Q$
+\part $(P \wedge Q \wedge \neg R) \rightarrow (R \rightarrow \neg (P \wedge Q))$
+\end{parts}
+
+Tips: Använd sanningstabeller!
+
+\question{\bfseries Lite utsagor}
+
+Betrakta följande predikat: $Q(x,y,z) : x^2 + y^2 \geq z^2$.
+
+Vilka av följande utsagor är sanna? Motivera varje svar.
+ 
+\begin{parts}
+\part $\forall x : \forall y : \forall z : Q(x,y,x)$
+\part $\forall x : \forall y : \exists z : Q(x,y,x)$
+\part $\exists x : \exists y : \forall z : Q(x,y,x)$
+\part $\forall x : \exists y : \exists z : Q(x,y,x)$
+\part $\forall x : \forall y : \exists z : Q(x,y,x)$
+\end{parts}
+
+I samtliga fall gäller: $x,y,z \in \mathbb{R}$.
+
+\question{\bfseries Lite däggdjur}
+
+Antag att vårt universum är mängden av alla djur.
+
+Betrakta följande predikat:
+\begin{itemize}
+  \item $D(x)$ : x är ett däggdjur
+  \item $H(x)$ : x är en hund
+  \item $A(x)$ : x är en anka
+  \item $T(x,y)$ : x är tyngre än y
+\end{itemize}
+
+Formulera följande påståenden med hjälp av kvantorer och ovanstående predikat:
+
+\begin{parts}
+  \part Alla hundar är däggdjur
+  \part Inga hundar är ankor
+  \part Det finns ett däggdjur som är tyngre än alla hundar
+  \part Det finns en anka som är lättare än alla hundar
+\end{parts}
+
+\end{questions}
+
+
+\end{document}
