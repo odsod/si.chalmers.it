@@ -14,7 +14,7 @@
 }
 
 .exercise h2:before {
-  content: "Uppgift " counter(exercise) ": ";
+  content: counter(exercise) ") ";
   counter-increment: exercise;
 }
 
